@@ -21,19 +21,80 @@ def errores(line):
     if (((comp+'\n') != line) and (comp != line)):
         errores.write(str(num_lin) + " "+line)
         return True
-
     else:
         return False
 
 
+def printall():
+    for item in lista_dirr:
+        i=0
+        while i < 6:
+            print(item[i])
+            i +=1
+        
+def print_caminos(id):
+    flag = False
+    flag2 = True
+    for i in lista_dirr:
+        if i[0] == id:
+            flag = True
+
+    if flag == False:
+        print("No existe esa calle")
+        return
+
+    tuplas_validas = []
+    cadenaTuplas = str(id) + "->"
+    
+    for item in tuplas_caminos:
+        if item[0] == id:
+            tuplas_validas.append(item)
+    for tupla in tuplas_validas:
+        id_actual = tupla[1]
+        lista_actual = list()
+        lista_actual.append(id_actual)
+        while 
 
 
-file = open("input.txt", "r")
-errores = open("errores.txt", "w")
-num_lin = 0
+
+def print_nombre(nombre):
+    print("CALLES CON PERSONAS DE NOMBRE "+nombre+":")
+    return
+
+def print_apell(apellido):
+    print("CALLES CON PERSONAS DE APELLIDO "+apellido+":")
+    return
+
+def print_rut(rut):
+    print("CALLES CON PERSONAS DE RUT "+rut+":")
+    return
+
+def print_calle(id):
+    print("CALLE:")
+    for i in lista_dirr:
+        if i[0] == id:
+            for obj in i:
+                print(str(obj))
 
 
-for linea in file:
-    num_lin +=1
-    W = errores(linea)
-    caminito = re.findall(camino2, linea)
+
+file_txt = open("input.txt", "r")
+errores_txt = open("errores.txt", "w")
+num_lin = num_err = 0
+lista_dirr = []
+tuplas_caminos = []
+
+
+
+for linea in file_txt:
+    strings = linea.split(";")
+    for comando in strings:
+        if comando == "print_all":
+            printall()
+        elif comando[0:12] == "print_caminos":
+            print_caminos(comando[13:])
+        re.findall(calle, comando)
+        re.findall(camino2, comando)
+
+
+

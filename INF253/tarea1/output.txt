@@ -1,0 +1,47 @@
+CALLE:
+Ejemplo1
+#DA19
+Jose
+Diaz
++122011
+111111-6
+CALLE:
+Ejemplo1
+#DA19
+Jose
+Diaz
++122011
+111111-6
+CALLE:
+Ejemplo2
+#EJ22
+Jorge luis,Rodrigo
+Salas
++536535
+2222222-8
+CALLE:
+Ejemplo3
+#EZ23
+Gabriel
+Lemus,Daba
++536545
+6558462-k
+CAMINOS DESDE #EJ22:
+#EJ22->#EZ23
+#EJ22->#DA19
+CALLES CON PERSONAS DE NOMBRE Jorge luis:
+Ejemplo2
+CALLES CON PERSONAS DE RUT 2222222-8:
+Ejemplo2
+CALLES CON PERSONAS DE TELEFONO +536535:
+Ejemplo3
+CALLES CON PERSONAS DE APELLIDO Lemus:
+Ejemplo3
+CALLE:
+Ejemplo2000
+#EJ26
+Diego,Marcelo
+Arias
++511111
+5555555-9
+Si se puede
