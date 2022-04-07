@@ -1,4 +1,3 @@
-from os import name
 import re
 
 
@@ -14,16 +13,11 @@ calle = calles + r'\.' + id + r'\.' + persona
 camino1 = r'\('+'('+calle+'|'+id+')'+':'+'('+calle+'|'+id+')'+r'\)'
 camino2 = r'\('+'('+calle+'|'+id+'|'+camino1+')'+':'+'('+calle+'|'+id+'|'+camino1+')'+ r'\)'
 
-def errores(line):
-    instru = re.findall(camino2, line)
-    comp = ""
-    for i in instru:
-        comp += i
-    if (((comp+'\n') != line) and (comp != line)):
-        errores.write(str(num_lin) + " "+line)
-        return True
-    else:
-        return False
+file_txt = open("input.txt", "r")
+errores_txt = open("errores.txt", "w")
+num_lin = num_err = 0
+lista_dirr = []
+tuplas_caminos = []
 
 
 def printcalle(id):
@@ -128,8 +122,16 @@ def print_rut(rut):
         print("No existen calles con personas con ese rut")
 
 def print_fono(telefono):
-    print("CALLES CON PERSONAS DE TELEFONO "+telefono+":")
-    return
+    lista_n = []
+    for elemento in lista_dirr:
+        if elemento[5] == telefono:
+            lista_n.append(elemento)
+    if lista_n:
+        print("CALLES CON PERSONAS DE TELEFONO "+telefono+":")
+        for item in lista_n:
+            print_calle(item)
+    else:
+        print("No existen calles con personas con ese telefono")
 
 def print_calle(id):
     print("CALLE:")
@@ -139,12 +141,37 @@ def print_calle(id):
                 print(str(obj))
 
 
+def caminitos(caminos1, caminos2):
+    ids = re.findall(id, caminos1)
+    ids2 = re.findall(id, caminos2)
 
-file_txt = open("input.txt", "r")
-errores_txt = open("errores.txt", "w")
-num_lin = num_err = 0
-lista_dirr = []
-tuplas_caminos = []
+    tuplas_caminos.append((ids[0],ids2[0]))
+
+    if re.findall(calle, caminos1) != None:
+        
+        calle_new,id_nueva,datos = caminos1.split('.')
+        nombre_new, apell_new, fono_new, rut_new = datos.split('_')
+        if compro_rut(rut_new) == False:
+            errores_txt.write(rut_new)
+            
+        else:
+            pass
+        lista_dirr.append((id_nueva,calle_new,nombre_new,apell_new,fono_new,rut_new))
+
+        calle_new,id_nueva,datos = caminos2.split('.')
+        nombre_new, apell_new, fono_new, rut_new = datos.split('_')
+        if compro_rut(rut_new) == False:
+            errores_txt.write(rut_new)
+
+        else:
+            pass
+        lista_dirr.append((id_nueva,calle_new,nombre_new,apell_new,fono_new,rut_new))
+    
+    else:
+        lista_dirr.append((ids))
+        lista_dirr.append((ids2))
+
+
 
  
 
@@ -152,32 +179,32 @@ for linea in file_txt:
     strings = linea.split(";")
     for comando in strings:
         if re.match(r'print_caminos', comando) != None:
-            lista = re.findall(id, comando)
-            if lista:
-                print_caminos(lista[0])
+            lista1 = re.findall(id, comando)
+            if lista1:
+                print_caminos(lista1[0])
         elif re.match(r'print_by_nombre', comando) != None:
-            lista = re.findall(names, comando)
-            if lista:
-                print_nombre(lista[0])
+            lista2 = re.findall(names, comando)
+            if lista2:
+                print_nombre(lista2[0])
         elif re.match(r'print_by_apellido', comando) != None:
-            lista = re.findall(names, comando)
-            if lista:
-                print_apell(lista[0])
+            lista3 = re.findall(names, comando)
+            if lista3:
+                print_apell(lista3[0])
         elif re.match(r'print_by_rut', comando) != None:
-            lista = re.findall(rut, comando)
-            if lista:
-                print_rut(lista[0])
+            lista4 = re.findall(rut, comando)
+            if lista4:
+                print_rut(lista4[0])
 
         elif re.match(r'print_by_telefono', comando) != None:
-            lista = re.findall(telefono, comando)
-            if lista:
-                print_fono(lista[0])
+            lista5 = re.findall(telefono, comando)
+            if lista5:
+                print_fono(lista5[0])
         elif re.match(r'print_all', comando) != None:
             printall()
         elif re.match(r'print', comando) != None:
-            lista = re.findall(id, comando)
-            if lista:
-                printcalle(lista[0])
+            lista6 = re.findall(id, comando)
+            if lista6:
+                printcalle(lista6[0])
 
         elif re.match(r'update', comando) != None:
             _,id_actual,calle_nueva = comando.split(' ')
@@ -191,17 +218,24 @@ for linea in file_txt:
         elif re.match(r'valid_caminos', comando) != None:
             ids = re.findall(id, comando)
 
+
         else:
             if re.match(calle, comando) != None:
                 calle_new,id_nueva,datos = comando.split('.')
                 nombre_new, apell_new, fono_new, rut_new = datos.split('_')
                 if compro_rut(rut_new) == False:
-                    errores_txt.write(rut_new)
+                    errores_txt.write(rut_new+"\n")
                     num_err +=1
                 else:
                     pass
                 lista_dirr.append((id_nueva,calle_new,nombre_new,apell_new,fono_new,rut_new))
             elif re.match(camino2, comando) != None:
+                lista_new2 = re.findall(camino2, comando)
+                if lista_new2:
+                    
+                    caminitos(lista_new2[0][0], lista_new2[0][9])
+                    
+                    
                 
 
 
