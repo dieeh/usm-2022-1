@@ -1,0 +1,139 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{fullpage}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\usepackage{tikz}
+%\usetikzlibrary{shapes}
+\usetikzlibrary{arrows,automata}
+
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,}
+}
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\begin{document}
+
+\thispagestyle{empty}
+ 	
+\begin{minipage}[t]{0.6\textwidth}
+
+{\LARGE \textbf{INF152} Estructuras Discretas - Tarea 1}
+
+{\large \textbf{Profesores}: Claudio Lobos, Jorge Díaz Sebastián Gallardo, María Paz Vergara, Miguel Guevara.}\\
+{\small \textbf{Ayudantes}: Valentina Aróstica, Bryan González, Sofía Mañana, Sofía Riquelme, Carla Herrera, Álvaro Gaete, Constanza Alvarado, Maciel Ripetti, Maureen Gavilán, Ignacio Jorquera, Fernanda Avendaño y Luis González.} 
+
+Universidad T\'ecnica Federico Santa Mar\'{\i}a
+
+Departamento de Inform\'atica -- SJ - CC 
+
+
+
+\end{minipage}
+\hfill
+
+
+
+\vspace{0.3cm}
+
+
+\begin{center}
+    \huge Tarea 1
+\end{center}
+
+\section{Reglas generales}
+\begin{itemize}
+    \item Esta tarea tiene como objetivo, el que usted aprenda a usar \LaTeX, y que refresque los contenidos relacionados con el Certamen 1. 
+    \item Deben investigar por su cuenta la sintáxis de \LaTeX $~$para adquirir las herramientas que le permitan elaborar un desarrollo claro, ordenado, y \textbf{formal} en cada pregunta.
+    
+    \item Para resolver cada pregunta, debe hacer uso de los contenidos, algoritmos y métodos aprendidos en el curso (formalización, tablas de verdad, técnicas de inferencia, técnicas de demostración, operaciones e identidades de conjuntos, etc). Si su respuesta final es correcta, pero se ha utilizado un método distinto al enseñado en clases (por ejemplo inducción, prueba y error, o descarte) no se asignará puntaje. Ídem si entrega resultados sin desarrollo.
+    
+    \item La tarea debe realizarse en grupos de hasta 3 integrantes \textbf{del mismo paralelo}. Cabe decir, que el buscar por su cuenta la solución a los problemas aquí planteados (que son sencillos), y aprender a usar \LaTeX  $~$mientras desarrolla, le será de mucha utilidad tanto en este curso, como en el futuro.
+    
+    \item Debe entregar el archivo generado en PDF, un archivo .txt especificando los nombres y rol de los integrantes del grupo, \textbf{y} el archivo .tex que contiene su código de \LaTeX, ambos en una carpeta comprimida en .zip la cual debe llevar el nombre y apellido de uno de los integrantes, en el formato Nombre\textunderscore Apellido.zip
+    
+    \item No se descontará por warnings en el .tex dado que es la primera tarea, pero su archivo .tex \textbf{DEBE} compilar (se descontará 60 puntos si no lo hace, aunque exista un PDF con su desarrollo). Errores y warnings no son lo mismo. Si su código tiene errores probablemente su .tex no compile, aunque es posible que algunos editores de \LaTeX $~$generen un PDF de todas formas. Procure corregir todos los errores antes de entregar, y dentro de lo posible evitar warnings.
+    
+    \item Revise 2 veces que el archivo .tex se corresponda con el PDF que está entregando. Se revisará que todo esté completo y que el PDF sea exactamente el generado por su código de \LaTeX . Si se equivoca y entrega un archivo erróneo, vacío, ajeno, versión antigua, etc; se revisará lo entregado sin opción de hacer una segunda entrega.
+    
+        
+    \item Tiene hasta las 23:59 hrs del día 16 de abril para entregar esta tarea vía Aula.
+    
+    \item Se descontarán 10 puntos por atraso desde las 00:01 hrs hasta las 01:00 hrs, y se irán restando sucesivamente 10 puntos de su nota por cada hora de atraso.
+    
+    \item Recuerde revisar las cápsulas de \LaTeX $~$en el canal de YouTube:
+    \href{https://www.youtube.com/channel/UCvrv1uJmkRp0l_57flzG7Sg}{www.youtube.com/channel/Ayudantias}
+
+    
+\end{itemize}
+\newpage
+\section{Predicados}
+\subsection{Lore}
+El universo de Discretilandia ha sufrido un altercado estos últimos 2 años producto del virus COVID-19. Debido a esto, un enemigo se ha aprovechado de la situación y ha provocado desastres en un sector en particular de Discretilandia, con el fin de acabar de una vez por todas con el grandioso universo. 
+\\[0.1cm]
+Debido a la dificultad del caso, la organización de Discretilandia acudió a un reconocido detective, llamado Elvis Tek.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{disfraz-detective.jpg}
+    \caption{El detective Elvis Tek }
+    \label{superheroe}
+\end{figure}
+La investigación del detective ha concretado que debe acudir específicamente a la Casa Central de Discretilandia, en donde se encontraría el enemigo. Para ello, necesita de su ayuda para superar todas las adversidades que se le presenten en el camino.
+\subsection{Problemas}
+\begin{enumerate}
+    \item Una vez que nuestro detective llega al mundo de Discretilandia, se encuentra con su primer problema, ``The confusion door". Al parecer, esta puerta de seguridad se encarga de verificar que todo aquel que entre al mundo sea una persona debidamente autorizada. Es por ello que todo aquel que decida entrar a este mundo, debe ser capaz de entender y demostrar las confusas proposiciones de la puerta. Nuestro detective decide enfrentar este problema, a lo cual la puerta le comenta las siguientes proposiciones:
+    \begin{itemize}
+        \item \textit{Si a todos los discretos les gusta leer o todos son de Casa Central, entonces les gusta la USM.}
+        \item \textit{Todos los discretos juegan basketball, si y sólo si, cumplen con que no son del campus Casa Central, pero que les guste el café.}
+        \item \textit{Muchos discretos juegan basketball si les gusta el café.}
+        \item \textit{A los discretos que son de Casa Central o no les gusta la USM, también les gusta el café.}
+    \end{itemize}
+    ``The confusion door", burlándose del detective por las confusas proposiones que le ha comentado, le pide a usted \textbf{demostrar que existe algún discreto que no le guste la USM y que no le guste leer}. Para ello, utilice las reglas de inferencia y los cuantificadores. Será la única forma para que la puerta crea que son discretos y les permita avanzar. (Nota: defina sus predicados en función de $x$, donde $x$ es discreto)
+\end{enumerate}
+\textbf{Solución:}
+%Escriba su respuesta aquí
+\section{Demostraciones}
+Dados dos números $x$ e $y$ demuestre o refute formalmente que la media aritmética de ellos es siempre mayor a la media geométrica. Debe indicar explícitamente que técnica de demostración utilizará de las vistas en clases. (Nota: la media aritmética es $\frac{x+y}{2}$ y la media geométrica es $\sqrt{xy}$)\\ \textbf{Considere x,y $\in \mathbb R^+$}
+
+\textbf{Solución:}
+%Escriba su respuesta aquí
+\newpage
+\section{Proposiciones}
+
+Un día la señorita Hoover, profesora de Lisa Simpson le encarga a ella crear un árbol genealógico de sus antepasados incluyendo mezclas con descendientes afroamericanos y todo aquel que haya sido o sea un Simpson, sin importar raza o color. En medio de su búsqueda sobre el pasado de su familia, Lisa encuentra la siguiente inscripción:
+
+\begin{center}
+    \textit{``Si un ciudadano tiene un abuelo amarillo, el ciudadano o es amarillo o no tiene un abuelo amarillo; por lo tanto si un ciudadano es Simpson, este es amarillo, y además vive en Springfield. Todo lo anterior es la pura y santa verdad." }
+   
+\end{center}
+
+Lisa solicita su ayuda y de su grupo para formalizar esta afirmación por lo tanto, proponga una expresión en lógica de proposiciones para que Lisa pueda avanzar en su arbol genealógico.\\
+\textbf{Nota: No es necesario reducir la expresion}
+
+
+\begin{center}
+    \includegraphics[scale=0.3]{yellow3.PNG}
+\end{center}
+
+\textbf{Solución:}
+%Escriba su respuesta aquí
+
+\end{document}
