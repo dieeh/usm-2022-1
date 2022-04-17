@@ -14,6 +14,8 @@
 \usepackage{fullpage}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{enumitem}
+
 
 \usepackage{tikz}
 %\usetikzlibrary{shapes}
@@ -108,13 +110,161 @@ La investigación del detective ha concretado que debe acudir específicamente a
     \end{itemize}
     ``The confusion door", burlándose del detective por las confusas proposiones que le ha comentado, le pide a usted \textbf{demostrar que existe algún discreto que no le guste la USM y que no le guste leer}. Para ello, utilice las reglas de inferencia y los cuantificadores. Será la única forma para que la puerta crea que son discretos y les permita avanzar. (Nota: defina sus predicados en función de $x$, donde $x$ es discreto)
 \end{enumerate}
+
+\newpage
 \textbf{Solución:}
-%Escriba su respuesta aquí
+\subsubsection{Formalizaci\'on de predicados}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{itemize}
+    \item \textit{A}(\textit{x}): \textit{x} le gusta leer.
+    \item \textit{B}(\textit{x}): \textit{x} le gusta el café.
+    \item \textit{C}(\textit{x}): \textit{x} le gusta la USM.
+    \item \textit{D}(\textit{x}): \textit{x} es de Casa Central.
+    \item \textit{E}(\textit{x}): \textit{x} juega basketball.
+\end{itemize}
+\end{minipage}
+\subsubsection{Formalizaci\'on de enunciados}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{equation}
+     \forall x (A(x) \vee D(x)) \Rightarrow  C(x)
+\end{equation}
+\begin{equation}
+    \forall x  E(x) \Leftrightarrow \forall x (\neg D(x) \wedge  B(x))
+\end{equation}
+\begin{equation}
+    \exists x ( B(x) \Rightarrow E(x) )
+\end{equation}
+\begin{equation}
+    \exists x (( D(x) \vee \neg C(x) ) \wedge B(x))
+\end{equation}
+\end{minipage}
+\subsubsection{Demostraci\'on}
+\begin{minipage}[c]{0.4\textwidth}
+    Hay que demostrar que:
+    \begin{equation*}
+        \exists x (  \neg C(x) \wedge \neg A(x))
+    \end{equation*}
+    Entonces:
+    \begin{equation*}
+        \exists x ((D(x) \vee \neg C(x)) \wedge B(x))
+    \end{equation*}
+    \begin{equation*}
+        (D(a) \vee \neg C(a)) \wedge B(a)
+    \end{equation*}
+    \begin{equation*}
+       B(a)
+    \end{equation*}
+    \begin{equation*}
+        \exists x (B(x) \Rightarrow E(x))
+    \end{equation*}
+    \begin{equation*}
+        B(a) \Rightarrow E(a)
+    \end{equation*}
+    \begin{equation*}
+       E(a)
+    \end{equation*}
+    \begin{equation*}
+       \forall x E(x)
+    \end{equation*}
+    \begin{equation*}
+       \forall x \  E(x) \Leftrightarrow \forall x(\neg D(x) \wedge B(x))
+    \end{equation*}
+    \begin{equation*}
+        \forall x(\neg D(x) \wedge B(x))
+    \end{equation*}
+    \begin{equation*}
+        \neg D(a) \wedge B(a)
+     \end{equation*}
+     \begin{equation*}
+        \neg D(a)
+     \end{equation*}
+     \begin{equation*}
+        (D(a) \vee \neg C(a))
+     \end{equation*}
+     \begin{equation*}
+        \neg C(a)
+     \end{equation*}
+     \begin{equation*}
+       \forall x (A(x) \vee D(x)) \Rightarrow C(x)
+     \end{equation*}
+     \begin{equation*}
+        (A(a) \vee D(a)) \Rightarrow C(a)
+     \end{equation*}
+     \begin{equation*}
+        \neg (A(a) \vee D(a))
+     \end{equation*}
+     \begin{equation*}
+        \neg A(a) \wedge \neg D(a)
+     \end{equation*}
+     \begin{equation*}
+        \neg A(a)
+     \end{equation*}
+     \begin{equation*}
+        \neg C(a) \wedge \neg A(a)
+     \end{equation*}
+     \begin{equation*}
+        \exists x (\neg C(x) \wedge \neg A(x))
+     \end{equation*}
+    \end{minipage}
+    \begin{minipage}[c]{0.5\textwidth}
+        \vspace{2.15cm}
+        \begin{enumerate}
+           \vspace{-0.06cm}\item Hip\'otesis
+           \vspace{-0.06cm}\item Particularizaci\'on existencial, a es discreto
+           \vspace{-0.06cm}\item Simplificaci\'on de l\'inea 2
+           \vspace{-0.06cm}\item Hip\'otesis
+           \vspace{-0.06cm}\item Particularizaci\'on existencial
+           \vspace{-0.06cm}\item Modus Ponens de l\'ineas 3 y 5
+           \vspace{-0.06cm}\item Generalizaci\'on universal
+           \vspace{-0.06cm}\item Hip\'otesis
+           \vspace{-0.06cm}\item Modus Ponens de l\'ineas 7 y 8
+           \vspace{-0.06cm}\item Particularizaci\'on universal
+           \vspace{-0.06cm}\item Simplificaci\'on de l\'inea 10
+           \vspace{-0.06cm}\item Simplificaci\'on de l\'inea 2
+           \vspace{-0.06cm}\item Silogismo disyuntivo de l\'ineas 11 y 12
+           \vspace{-0.06cm}\item Hip\'otesis
+           \vspace{-0.06cm}\item Particularizaci\'on universal
+           \vspace{-0.06cm}\item Modus Tollens de l\'ineas 13 y 15
+           \vspace{-0.06cm}\item Ley de Morgan de l\'inea 16
+           \vspace{-0.06cm}\item Simplificaci\'on de l\'ineas 17
+           \vspace{-0.06cm}\item Ley de combinaci\'on de l\'ineas 13 y 18
+           \vspace{-0.06cm}\item Generalizaci\'on existencial
+        \end{enumerate}
+        \end{minipage}
+    
+
+
+
 \section{Demostraciones}
 Dados dos números $x$ e $y$ demuestre o refute formalmente que la media aritmética de ellos es siempre mayor a la media geométrica. Debe indicar explícitamente que técnica de demostración utilizará de las vistas en clases. (Nota: la media aritmética es $\frac{x+y}{2}$ y la media geométrica es $\sqrt{xy}$)\\ \textbf{Considere x,y $\in \mathbb R^+$}
 
 \textbf{Solución:}
-%Escriba su respuesta aquí
+\newline
+\newline
+\begin{minipage}[c]{\textwidth}
+    Se nos pide demostrar que $\forall x, \forall y \in \mathbb R^+ ; \frac{x+y}{2} > \sqrt{xy}$, entonces utilizando la demostración por contraejemplo tenemos que:
+
+    \begin{equation*}
+        \frac{x+y}{2} > \sqrt{xy}
+    \end{equation*}
+    \begin{equation*}
+        Para \ el \ caso \  x=y \ ; \  \frac{y+y}{2} > \sqrt{yy}
+    \end{equation*}
+    \begin{equation*}
+        \frac{2y}{2} > \sqrt{y^2}
+    \end{equation*}
+    \begin{equation*}
+        y > \left|y\right|
+    \end{equation*}
+    \begin{equation*}
+        Como \ y \in \mathbb R^+ ;\  y > y \equiv F
+    \end{equation*}
+    Podemos concluir que la media aritmética no es \textit{siempre} mayor a la media geométrica, ya que en el caso $x = y$ se llega a una igualdad.
+\end{minipage}
+
+
+
+
 \newpage
 \section{Proposiciones}
 
@@ -134,6 +284,24 @@ Lisa solicita su ayuda y de su grupo para formalizar esta afirmación por lo tan
 \end{center}
 
 \textbf{Solución:}
-%Escriba su respuesta aquí
+\subsection{Formalizaci\'on de proposiciones}
+\begin{minipage}[t]{0.6\textwidth}
+\begin{itemize}
+    \item \textit{A}: El ciudadano tiene un abuelo amarillo.
+    \item \textit{B}: El ciudadano es amarillo.
+    \item \textit{C}: El ciudadano es Simpson.
+    \item \textit{D}: El ciudadano vive en Springfield.
+\end{itemize}
+\end{minipage}
+\subsection{Expresi\'on}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{equation*}
+    ((A \veebar \neg B) \Rightarrow (C \Rightarrow (B \wedge D))) \equiv V
+\end{equation*}
+\begin{equation*}
+    Siendo \  \veebar \ la \  disyuncion \   exclusiva.
+\end{equation*}
+
+\end{minipage}
 
 \end{document}

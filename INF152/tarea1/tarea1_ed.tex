@@ -58,3 +58,39 @@ Departamento de Inform\'atica -- SJ - CC
 \begin{center}
     \huge Tarea 1
 \end{center}
+
+
+\section{Predicados}
+\subsubsection{Formalizaci\'on de predicados}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{itemize}
+    \item \textit{A}(\textit{x}): \textit{x} le gusta leer.
+    \item \textit{B}(\textit{x}): \textit{x} le gusta el café.
+    \item \textit{C}(\textit{x}): \textit{x} le gusta la USM.
+    \item \textit{D}(\textit{x}): \textit{x} es de Casa Central.
+    \item \textit{E}(\textit{x}): \textit{x} juega basketball.
+\end{itemize}
+\end{minipage}
+\vspace{0.4cm}
+\newline
+\begin{minipage}[t]{0.5\textwidth}
+    Formalizando los enunciados obtenemos que:
+    \begin{equation}
+        ( \forall x \  A(x) \  \vee \  \forall x \  D(x) )\Rightarrow \forall x \  C(x)
+    \end{equation}
+    \begin{equation}
+        \forall x \  E(x) \Leftrightarrow (\forall x \  \neg D(x) \wedge \forall x \  B(x) )
+    \end{equation}
+    \begin{equation}
+        \exists x \  B(x) \Rightarrow E(x)
+    \end{equation}
+    \begin{equation}
+       ( D(x) \vee \  \neg C(x) ) \Rightarrow B(x)
+    \end{equation}
+    \end{minipage}
+
+
+
+
+
+\end{document}

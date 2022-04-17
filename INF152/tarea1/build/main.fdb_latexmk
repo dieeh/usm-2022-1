@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1649998860 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea1/main.tex" "build/main.pdf" "main" 1649998861
-  "C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1649998858 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+["pdflatex"] 1650164897 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea1/main.tex" "build/main.pdf" "main" 1650164899
+  "C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1650160770 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Diego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1649998813 10246961 5da53bb2b8901c3729fe5a773d41703a ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233948248 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233948254 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -19,6 +19,7 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb" 1247596667 32298 c6d25bb16d1eac01ebdc6d7084126a1e ""
+  "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -28,6 +29,7 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247596666 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580386558 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575567500 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -124,6 +126,7 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/base/atveryend-ltx.sty" 1638771484 2462 754d6b31b2ab5a09bb72c348ace2ec75 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/base/inputenc.sty" 1638771484 5049 969aec05d5f39c43f8005910498fcf90 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1638771484 8448 96f18c76bf608a36ee6fbf021ac1dd32 ""
+  "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/enumitem/enumitem.sty" 1561039820 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/float/float.sty" 1469023953 6916 16d2656a1984957e674b149555f1ea1d ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.cfg" 1578049945 1104 7ac475a4e3466b0b43e138e9356bda83 ""
@@ -162,11 +165,11 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/tools/multicol.sty" 1636706660 32262 2bb622a0aa56c4a7a5cbdfe9d122c15a ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388486852 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636281272 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "build/main.aux" 1649998861 1654 44e0fcde1231f00781f0d636252ec209 "pdflatex"
-  "build/main.out" 1649998861 619 891677635b1ed050557faea992fbc579 "pdflatex"
-  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea1/main.tex" 1649533960 8190 863de375babefc4de04a8a389676181a ""
+  "build/main.aux" 1650164899 2334 8ccb81747a683f2802713045c0a72715 "pdflatex"
+  "build/main.out" 1650164899 1494 b454c38d37ca4ca9a31afc2bb6ddac71 "pdflatex"
+  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea1/main.tex" 1650164897 13574 14e80ff909286924d79bf51ba94f8286 ""
   "disfraz-detective.jpg" 1649533960 63856 878f27c0e8411c26724466f5f4874127 ""
-  "main.tex" 1649533960 8190 863de375babefc4de04a8a389676181a ""
+  "main.tex" 1650164897 13574 14e80ff909286924d79bf51ba94f8286 ""
   "yellow3.PNG" 1649533960 561793 972ae98d65f97d56c392ed1319f5123f ""
   (generated)
   "build/main.aux"
