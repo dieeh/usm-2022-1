@@ -1,17 +1,35 @@
 {
-    // Use IntelliSense para saber los atributos posibles.
-    // Mantenga el puntero para ver las descripciones de los existentes atributos.
-    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Archivo actual",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${fileDirname}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF253/tarea2/Tarea2LP_202004502-k",
+      "environment": [],
+      "program": "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF253/tarea2/Tarea2LP_202004502-k/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "console": "integratedTerminal",
+      "setupCommands": [
         {
-            "name": "Python: Archivo actual",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "cwd": "${fileDirname}",
-            "console": "integratedTerminal",
-            "justMyCode": true
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
         }
-    ]
+      ]
+    }
+  ]
 }
