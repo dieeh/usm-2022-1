@@ -5,15 +5,6 @@ typedef  struct  Inc {
     char* n; // cantidad de numeros distintos en el conjunto
 } Inc;
 
-typedef struct Representacion{
-    void* representacion; // puntero a la representacion creada
-    int* (*descomprimir_en_inc)(void*);  //  punteros a funciones
-    int (*donde_esta_inc)(void*,int ,int);
-    int (*cuantos_mas_grande_inc)(void*,int ,int);
-    int (*bits_inc)(void*);
-    void (*mostrar_inc)(void*);
-} Representacion;
-
 Inc* comprimir_en_inc(int n, int* grupo);
 int* descomprimir_en_inc(void* inc);
 int  donde_esta_inc(void* inc , int e, int i);
