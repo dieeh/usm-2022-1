@@ -64,7 +64,19 @@ int  donde_esta_unario(void* unario , int e, int i);
 int  cuantos_mas_grande_unario(void* unario , int e);
 
 
-int  bits_unario(void* unario);
+int  bits_unario(void* unario){
+    Unario temp = *(Unario*)unario;
+    int largo = sizeof(temp.bits)/sizeof(char*);
+    return largo;
+}
 
 
-void  mostrar_unario(void* unario); 
+void  mostrar_unario(void* unario){
+    Unario temp = *(Unario*)unario;
+    int largo = sizeof(temp.bits)/sizeof(char*);
+    printf("UNARIO:\n");
+    for (int i = 0; i < largo; i++){
+        printf("%c", temp.bits[i]);
+    }
+    printf("\n");
+}
