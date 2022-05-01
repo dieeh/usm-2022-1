@@ -12,7 +12,7 @@ typedef struct Representacion{
     void* representacion; // puntero a la representacion creada
     int* (*su_descomprimir)(void*);  //  punteros a funciones
     int (*su_donde_esta)(void*,int ,int);
-    int (*su_cuantos_mas_grande)(void*,int ,int);
+    int (*su_cuantos_mas_grande)(void*, int);
     int (*su_bits)(void*);
     void (*su_mostrar)(void*);
 } Representacion;
