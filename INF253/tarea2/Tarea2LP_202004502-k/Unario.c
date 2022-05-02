@@ -8,10 +8,9 @@ Unario* comprimir_en_unario(int n, int* grupo){
     int k = 0;
     int sum = 0;
     while (k<n){
-        sum = sum + grupo[k];
-        k++;
+        sum = sum + grupo[k++];
     }
-    sum = sum+(k-1);
+    sum += k-1;
     char out[sum];
     k = 0;
     while (k<sum){
@@ -19,12 +18,11 @@ Unario* comprimir_en_unario(int n, int* grupo){
             int j = 0;
             int p = grupo[i];
             while (j<p){
-                out[j] = '1';
-                j++;
+                out[j++] = '1';
             }
             out[j]='0';
             i++;
-            k = k + (j-1);
+            k += j-1;
         }
     }
 
@@ -50,9 +48,8 @@ int* descomprimir_en_unario(void* unario){
         if (temp.bits[j]== '1'){
             sum++;
         }else{
-            arreglo[ind] = sum;
+            arreglo[ind++] = sum;
             sum = 0;
-            ind++;
         }
     }
     return arreglo;    
