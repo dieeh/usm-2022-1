@@ -93,19 +93,25 @@ Frec* comprimir_en_frec(int n, int* grupo){
         }
     }
     int* bitcoins = (int*)malloc(sizeof(int * sum2));
-    l = i = j = k = numero_rep = 0;
-    int repre = 0;
+    l = i = j = k = 0;
     while (l < n){
-        while (i < sum){
-            if (repres[i++] == '1'){
-                numero_rep++;
+        for (i = 0; i < sum; i++){
+            if (repres[i] == '1'){
+                j++;
             }else{
-                repre++;
-                i++;
+                if (j == grupo[l]){
+                    j = 0;
+                    l++;
+                    while ((repres[++i] != '0')&&(i<sum)){
+                        bitcoins[k++] = '1';
+                    }
+                    if (k<sum2){
+                        bitcoins[k++] = '0';
+                    }
+                }   
             }
         }
     }
-
     Frec* temp = (Frec*)malloc(sizeof(Frec));
     temp->representaciones = repres;
     temp->bits = bitcoins;
