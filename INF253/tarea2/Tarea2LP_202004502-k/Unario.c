@@ -11,7 +11,7 @@ Unario* comprimir_en_unario(int n, int* grupo){
         sum = sum + grupo[k++];
     }
     sum += k-1;
-    char out[sum];
+    char* out = (char*)malloc(sizeof(char * sum));
     k = 0;
     while (k<sum){
         while (i<n){
@@ -25,7 +25,6 @@ Unario* comprimir_en_unario(int n, int* grupo){
             k += j-1;
         }
     }
-
     Unario* tempo = (Unario*)malloc(sizeof(Unario*));
     tempo->bits = out;
     return tempo;

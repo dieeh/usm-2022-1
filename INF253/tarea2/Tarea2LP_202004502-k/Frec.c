@@ -4,7 +4,10 @@
 #include "Frec.h"
 
 Frec* comprimir_en_frec(int n, int* grupo){
-    int num_distint[n] = {-1};
+    int* num_distint = (int*)malloc(sizeof(int * n));
+    for (int o = 0; o < n; o++){
+        num_distint[o] = -1;
+    }
     int flag = 0;
     int index = 0;
     int i, j, k;
@@ -18,11 +21,11 @@ Frec* comprimir_en_frec(int n, int* grupo){
             num_distint[index++] = grupo[i];
         }
     }
-    int numeros_dist[index];
+    int* numeros_dist = (int*)malloc(sizeof(int * index));
     for (k = 0; k < index; k++){
         numeros_dist[k] = num_distint[k];
     }
-    int iter[index];
+    int iter[index];  //int* iter = (int*)malloc(sizeof(int * index));
     int cont;
     for (j = 0; j < index; j++){
         cont = 0;
@@ -36,7 +39,7 @@ Frec* comprimir_en_frec(int n, int* grupo){
     //numeros_dist = numeros distintos en el conjunto
     //iter = iteraciones de cada numero
     //el indice coincide
-    int iter_copia[index];
+    int* iter_copia = (int*)malloc(sizeof(int * index));
     for (k = 0; k < index; k++){
         iter_copia[k] = iter[k];
     }
@@ -46,7 +49,7 @@ Frec* comprimir_en_frec(int n, int* grupo){
         sum += i+1;
     }
     //sum = cantidad de espacios en la secuencia de representacion
-    char repres[sum];
+    char* repres = (char*)malloc(sizeof(char * sum));
     int a = 1;//numero de representacion
     int l = 0;
     i = j = k = 0;
@@ -72,24 +75,64 @@ Frec* comprimir_en_frec(int n, int* grupo){
     //repres = representacion = 3 -> 11101
 
     l = i = j = k = 0;
-    while (){
-        
+    int numero_rep;
+    int sum2 = n-1; // 0's de los espacios entre numeros
+    while (l < sum){
+        if (repres[l++] == '1'){   //1111111101011
+            i++;
+        }else{
+            numero_rep = i;
+            j++; //numero de representacion
+            for (k = 0; k < index; k++){
+                if (numeros_dist[k] == numero_rep){
+                    sum2 += j*iter[k]
+                }
+            }
+            i = 0;
+            l += j+2;
+        }
     }
-    
-    
+    int* bitcoins = (int*)malloc(sizeof(int * sum2));
+    l = i = j = k = numero_rep = 0;
+    int repre = 0;
+    while (l < n){
+        while (i < sum){
+            if (repres[i++] == '1'){
+                numero_rep++;
+            }else{
+                repre++;
+                i++;
+            }
+        }
+    }
+
+    Frec* temp = (Frec*)malloc(sizeof(Frec));
+    temp->representaciones = repres;
+    temp->bits = bitcoins;
+    free(num_distint);
+    free(numeros_dist);
+    free(iter);
+    free(iter_copia);
+    return temp;
 }
 
 
 int* descomprimir_en_frec(void* frec);
 
 
-int  donde_esta_frec(void* frec , int e, int i);
+int  donde_esta_frec(void* frec, int e, int i);
 
 
-int  cuantos_mas_grande_frec(void* frec , int e);
+int  cuantos_mas_grande_frec(void* frec, int e);
 
 
-int  bits_frec(void* frec);
+int  bits_frec(void* frec){
+    Frec temp = *(Frec*)frec;
+    int sum = 0;
+    sum += sizeof(temp.bits)/sizeof(char*);
+    sum += sizeof(temp.representaciones)/sizeof(char*);
+    return sum;
+}
 
 
 void  mostrar_frec(void* frec);
