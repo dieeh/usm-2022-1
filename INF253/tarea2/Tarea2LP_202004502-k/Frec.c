@@ -25,7 +25,7 @@ Frec* comprimir_en_frec(int n, int* grupo){
     for (k = 0; k < index; k++){
         numeros_dist[k] = num_distint[k];
     }
-    int iter[index];  //int* iter = (int*)malloc(sizeof(int * index));
+    int* iter = (int*)malloc(sizeof(int * index));
     int cont;
     for (j = 0; j < index; j++){
         cont = 0;
