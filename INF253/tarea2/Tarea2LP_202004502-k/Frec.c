@@ -178,8 +178,16 @@ int donde_esta_frec(void* frec, int e, int i){
             indice = j;
         }
     }
-    
-    
+    int bit = sizeof(temp.bits)/sizeof(temp.bits[0]);
+    int count = 0;
+    for (int k = 0; k < bit; k++){
+        if (temp.bits[k] == '0'){
+            count++
+        }
+        if (count == indice){
+            return k+1;
+        }
+    }
 }
 
 

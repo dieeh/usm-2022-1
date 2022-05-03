@@ -3,6 +3,8 @@
 #include "Frec.h"
 #include "Inc.h"
 
+
+
 typedef struct Conjunto_comprimido {
     // arreglo de representaciones de grupos de numeros dentro del conjunto
     void* representaciones;
