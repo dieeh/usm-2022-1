@@ -3,7 +3,24 @@
 #include <math.h>
 #include "Inc.h"
 
-Inc* comprimir_en_inc(int n, int* grupo);
+Inc* comprimir_en_inc(int n, int* grupo){
+    int* n_dif = (int*)malloc(sizeof(int)*n);
+    for (int i = 0;i<n;i++){
+        n_dif[i] = -1;
+    }
+    int flag, ind = 0;
+    for (int i = 0;i<n;i++){
+        flag = 0;
+        for (int j = 0;j<n;j++){
+            if (grupo[i] == n_dif[j]){
+                flag = 1;
+            }
+        }
+        if (flag == 0){
+            n_dif[ind++] = grupo[i];
+        }
+    }
+}
 
 
 int* descomprimir_en_inc(void* inc);
