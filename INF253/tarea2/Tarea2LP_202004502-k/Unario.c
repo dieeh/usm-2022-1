@@ -11,7 +11,7 @@ Unario* comprimir_en_unario(int n, int* grupo){
         sum = sum + grupo[k++];
     }
     sum += k-1;
-    char* out = (char*)malloc(sizeof(char * sum));
+    char* out = (char*)malloc(sizeof(char)*sum);
     k = 0;
     while (k<sum){
         while (i<n){
@@ -33,7 +33,7 @@ Unario* comprimir_en_unario(int n, int* grupo){
 
 int* descomprimir_en_unario(void* unario){
     Unario temp = *(Unario*)unario;
-    int largo = sizeof(temp.bits)/sizeof(char*);
+    int largo = sizeof(temp.bits)/sizeof(temp.bits[0]);
     int cantidad = 1;
     for (int i = 0; i < largo; i++){
         if (temp.bits[i] == '0'){
@@ -57,8 +57,7 @@ int* descomprimir_en_unario(void* unario){
 
 int donde_esta_unario(void* unario, int e, int i){  //retorna posicion, parte desde 0?
     Unario temp = *(Unario*)unario;
-    int largo = sizeof(temp.bits)/sizeof(char*);
-    int indice_pos = 0;
+    int largo = sizeof(temp.bits)/sizeof(temp.bits[0]);
     int repeticiones = 0;
     int contador = 0;
     for (int j = 0; j < largo; j++){
@@ -80,7 +79,7 @@ int donde_esta_unario(void* unario, int e, int i){  //retorna posicion, parte de
 
 int cuantos_mas_grande_unario(void* unario, int e){
     Unario temp = *(Unario*)unario;
-    int largo = sizeof(temp.bits)/sizeof(char*);
+    int largo = sizeof(temp.bits)/sizeof(temp.bits[0]);
     int cuantos = 0;
     int contador = 0;
     for (int i = 0; i < largo; i++){
@@ -99,14 +98,14 @@ int cuantos_mas_grande_unario(void* unario, int e){
 
 int bits_unario(void* unario){
     Unario temp = *(Unario*)unario;
-    int largo = sizeof(temp.bits)/sizeof(char*);
+    int largo = sizeof(temp.bits)/sizeof(temp.bits[0]);
     return largo;
 }
 
 
 void mostrar_unario(void* unario){
     Unario temp = *(Unario*)unario;
-    int largo = sizeof(temp.bits)/sizeof(char*);
+    int largo = sizeof(temp.bits)/sizeof(temp.bits[0]);
     printf("UNARIO:\n");
     for (int i = 0; i < largo; i++){
         printf("%c", temp.bits[i]);

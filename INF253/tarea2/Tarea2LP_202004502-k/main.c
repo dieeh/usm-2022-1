@@ -19,10 +19,10 @@ typedef struct Representacion{
 
 Conjunto_comprimido* comprimir(int c, int* numeros , int g);
 int* descomprimir(Conjunto_comprimido* conjunto_comprimido);
-int  donde_esta(Conjunto_comprimido* conjunto_comprimido , int e, int i);
-int  cuantos_mas_grande(Conjunto_comprimido* conjunto_comprimido , int e);
-int  bits_total(Conjunto_comprimido* conjunto_comprimido);
-void  mostrar(Conjunto_comprimido* conjunto_comprimido);
+int donde_esta(Conjunto_comprimido* conjunto_comprimido , int e, int i);
+int cuantos_mas_grande(Conjunto_comprimido* conjunto_comprimido , int e);
+int bits_total(Conjunto_comprimido* conjunto_comprimido);
+void mostrar(Conjunto_comprimido* conjunto_comprimido);
 
 int main(){
 
