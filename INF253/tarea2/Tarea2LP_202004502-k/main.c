@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "Unario.h"
 #include "Frec.h"
 #include "Inc.h"
@@ -27,6 +28,39 @@ int bits_total(Conjunto_comprimido* conjunto_comprimido);
 void mostrar(Conjunto_comprimido* conjunto_comprimido);
 
 int main(){
+    int c_conjunto, c_grupos;
+    printf("Ingrese la cantidad de numeros en el conjunto:");
+    scanf("%d", &c_conjunto);
+    printf("Ingrese la cantidad de numeros por grupo:");
+    scanf("%d", &c_grupos);
+    double cantidad_grupos = c_conjunto/c_grupos;
+    int x = ceil(cantidad_grupos);
+
+    int** grupos = (int**)malloc(sizeof(int*) * x);
+    for (int i = 0; i < cantidad_grupos; i++){
+        grupos[i] = (int*)malloc(sizeof(int) * c_grupos);
+    }
+    
+    printf("Ingrese los numeros de forma separada:");
+    int conta = 0;
+    int n_con, n_pos;
+    n_con = n_pos = 0;
+    while (conta < c_conjunto){
+        int temp;
+        printf("Grupo %d, numero %d: ", n_con+1, n_pos+1);  
+        scanf("%d", &temp);
+        printf("\n");
+        grupos[n_con][n_pos++] = temp;
+        if (n_pos == c_grupos){
+            n_con++;
+        }
+        conta++;
+    }
+    
+    
+
+
+
 
     return 0;
 }

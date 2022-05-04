@@ -143,21 +143,21 @@ int* descomprimir_en_frec(void* frec){
             l++;
         }
     }
-    int valor, repre, t;
-    valor = repre = t = 0;
-    while (j < repre){
+    int valor, represent, t;
+    valor = represent = t = 0;
+    while (j < represent){
         if (temp.representaciones[j++] == '1'){
             valor++;
         }else{
             while (temp.representaciones[j++] != '0'){
-                repre++;
+                represent++;
             }
             for (t = 0; t < cont; t++){
-                if (descompreso[t] == repre){
+                if (descompreso[t] == represent){
                     descompreso[t] = valor;
                 }
             }
-            valor = repre = 0;
+            valor = represent = 0;
         }
     }
     return descompreso;
@@ -167,10 +167,10 @@ int* descomprimir_en_frec(void* frec){
 int donde_esta_frec(void* frec, int e, int i){
     Frec temp = *(Frec*)frec;
     int* conjunto = descomprimir_en_frec(frec);
-    int size = sizeof(conjunto)/sizeof(conjunto[0]);
+    int size2 = sizeof(conjunto)/sizeof(conjunto[0]);
     int contador = 0;
     int indice;
-    for (int j = 0; j < size; j++){
+    for (int j = 0; j < size2; j++){
         if (conjunto[j] == e){
             contador++;
         }
@@ -182,7 +182,7 @@ int donde_esta_frec(void* frec, int e, int i){
     int count = 0;
     for (int k = 0; k < bit; k++){
         if (temp.bits[k] == '0'){
-            count++
+            count++;
         }
         if (count == indice){
             return k+1;
