@@ -162,6 +162,50 @@ Aquí tiene un pseudocódigo de ejemplo, que puede utilizar como plantilla para 
 \end{center}
 
 \textbf{Solución:}
+
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+
+\STATE{\textbf{Method} int getLeast(String line, int givenNumber)}
+\STATE{\textbf{int} x $\leftarrow$ 0}
+\STATE{\textbf{int} y $\leftarrow$ 0}
+\STATE{\textbf{int} lista $\leftarrow$ list() }
+\FOR{item in line}
+    \STATE{y $\leftarrow$ y+1}
+    \STATE{\textbf{if} item \textbf{equals} ' ' \textbf{do}}
+    \STATE{\hskip1.0em lista.append( stringToInt(line[x:y]) )}
+    \STATE{\hskip1.0em x $\leftarrow$ y}
+    \STATE{\textbf{end if}}
+\ENDFOR
+\STATE{\textbf{int} maxValue $\leftarrow$ 0}
+\FOR{elemento1 in lista}
+    \STATE{\textbf{if} elemento1 $ >$ maxValue \textbf{do}}
+    \STATE{\hskip1.0em maxValue $\leftarrow$ elemento1}
+    \STATE{\textbf{end if}}
+\ENDFOR
+\STATE{\textbf{if} maxValue $\leqslant$ givenNumber \textbf{do}}
+\STATE{\hskip1.0em \textbf{return} -1}
+\STATE{\textbf{end if}}
+\FOR{elemento2 in lista}
+    \STATE{\textbf{if} elemento2 $ >$ givenNumber \textbf{and} elemento2 $ < $ maxValue \textbf{do}}
+    \STATE{\hskip1.0em maxValue $\leftarrow$ elemento2}
+    \STATE{\textbf{endif}}
+\ENDFOR
+\STATE{\textbf{return} maxValue}
+\STATE{\textit{// list() puede ser reemplazado por lista[], pero debe ser una estructura iterable}}
+\STATE{\textit{// se asume la existencia de una funcion stringToInt() que transforme strings a enteros}}
+\STATE{\textit{// se asume la existencia de un metodo append() que agrege elementos a lista}}
+
+\end{algorithmic}
+\caption{Find the minimum value larger than the parameter} %titulo
+\label{solucion1} %etiqueta para referenciar algoritmo en doc.
+\end{algorithm}
+\end{minipage}
+\end{center}
+
+
 \end{enumerate}
 
 \newpage

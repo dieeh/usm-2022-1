@@ -57,6 +57,32 @@ int main(){
         conta++;
     }
     
+    Conjunto_comprimido conjuntos;
+    *(Representacion*)conjuntos.representaciones = (Representacion*)malloc(sizeof(Representacion)*x);
+
+    for (int i = 0; i < x; i++){
+        Unario* temp1 = comprimir_en_unario(c_grupos, grupos[i]);
+        Frec* temp2 = comprimir_en_frec(c_grupos, grupos[i]);
+        Inc* temp3 = comprimir_en_inc(c_grupos, grupos[i]);
+
+        int a, b, c;
+        a = bits_unario(temp1);
+        b = bits_frec(temp2);
+        c = bits_inc(temp3);
+
+
+        if ((a > b)||(b < c)){
+            free(temp1);
+            free(temp3);
+            *(Frec*)conjuntos.representaciones[i]->representacion = temp2;
+            
+
+        }
+        
+        
+
+
+    }
     
 
 
