@@ -13,6 +13,21 @@ public abstract class Persona{
     public abstract void mejorar();
     public abstract void trabajo_realizado();
 
+
+
+
+
+    /**
+    * Funciones Get y Set
+    * 
+    * Estas funciones retornan y asignan respectivamente las siguientes variables
+    * de la clase abstracta
+    *
+    * -nombre
+    * -edad
+    * -nivel
+    * -productividad
+    */
     public String getNombre(){
         return nombre;
     }
