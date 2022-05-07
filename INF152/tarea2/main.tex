@@ -171,26 +171,26 @@ Aquí tiene un pseudocódigo de ejemplo, que puede utilizar como plantilla para 
 \STATE{\textbf{Method} int getLeast(String line, int givenNumber)}
 \STATE{\textbf{int} x $\leftarrow$ 0}
 \STATE{\textbf{int} y $\leftarrow$ 0}
-\STATE{\textbf{int} lista $\leftarrow$ list() }
+\STATE{\textbf{int} list $\leftarrow$ list() }
 \FOR{item in line}
     \STATE{y $\leftarrow$ y+1}
     \STATE{\textbf{if} item \textbf{equals} ' ' \textbf{do}}
-    \STATE{\hskip1.0em lista.append( stringToInt(line[x:y]) )}
+    \STATE{\hskip1.0em list.append( stringToInt(line[x:y]) )}
     \STATE{\hskip1.0em x $\leftarrow$ y}
     \STATE{\textbf{end if}}
 \ENDFOR
 \STATE{\textbf{int} maxValue $\leftarrow$ 0}
-\FOR{elemento1 in lista}
-    \STATE{\textbf{if} elemento1 $ >$ maxValue \textbf{do}}
-    \STATE{\hskip1.0em maxValue $\leftarrow$ elemento1}
+\FOR{element1 in list}
+    \STATE{\textbf{if} element1 $ >$ maxValue \textbf{do}}
+    \STATE{\hskip1.0em maxValue $\leftarrow$ element1}
     \STATE{\textbf{end if}}
 \ENDFOR
 \STATE{\textbf{if} maxValue $\leqslant$ givenNumber \textbf{do}}
 \STATE{\hskip1.0em \textbf{return} -1}
 \STATE{\textbf{end if}}
-\FOR{elemento2 in lista}
-    \STATE{\textbf{if} elemento2 $ >$ givenNumber \textbf{and} elemento2 $ < $ maxValue \textbf{do}}
-    \STATE{\hskip1.0em maxValue $\leftarrow$ elemento2}
+\FOR{element2 in list}
+    \STATE{\textbf{if} element2 $ >$ givenNumber \textbf{and} element2 $ < $ maxValue \textbf{do}}
+    \STATE{\hskip1.0em maxValue $\leftarrow$ element2}
     \STATE{\textbf{endif}}
 \ENDFOR
 \STATE{\textbf{return} maxValue}
