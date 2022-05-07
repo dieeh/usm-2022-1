@@ -13,12 +13,12 @@ public class Jugador {
     private ArrayList<Atraccion> atracciones;
 
 
-    public void sacar_persona(String);
-    public void agregar_persona(Persona);
-    public void sacar_edificio(String);
-    public void agregar_edificio(Edificio);
-    public void sacar_atraccion(String);
-    public void agregar_atraccion(Atraccion);
+    public void sacar_persona(String persona){}
+    public void agregar_persona(Persona persona){}
+    public void sacar_edificio(String edificio){}
+    public void agregar_edificio(Edificio edificio){}
+    public void sacar_atraccion(String atraccion){}
+    public void agregar_atraccion(Atraccion atraccion){}
 
     public void setNombre(String x){
         nombre = x;

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1651644534 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" "build/main.pdf" "main" 1651644536
+["pdflatex"] 1651904981 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" "build/main.pdf" "main" 1651904983
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1651636846 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Diego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1649998813 10246961 5da53bb2b8901c3729fe5a773d41703a ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233948248 1004 54797486969f23fa377b128694d548df ""
@@ -174,11 +174,11 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/tools/verbatim.sty" 1636706660 7392 39729ae6a807e217edf1442cf8fab2c2 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388486852 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636281272 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "build/main.aux" 1651644536 2719 a5e3e21a2a0b78f359ed232b6d536de2 "pdflatex"
-  "build/main.out" 1651644536 638 256a15bd4fea849bee3404957705e7f3 "pdflatex"
-  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" 1651644534 11384 19c293350607ce13a79ec3ffe62e8ef5 ""
+  "build/main.aux" 1651904982 2719 823a8eba2902120045712ebb1336ab18 "pdflatex"
+  "build/main.out" 1651904982 638 256a15bd4fea849bee3404957705e7f3 "pdflatex"
+  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" 1651904980 12455 b8523c47ed193f9020e5083fbe1188a3 ""
   "inf152.png" 1650902048 34511 8cb594630035f7ca345679d2614c10da ""
-  "main.tex" 1651644534 11384 19c293350607ce13a79ec3ffe62e8ef5 ""
+  "main.tex" 1651904980 12455 b8523c47ed193f9020e5083fbe1188a3 ""
   (generated)
   "build/main.aux"
   "build/main.log"

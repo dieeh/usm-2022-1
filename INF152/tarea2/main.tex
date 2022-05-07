@@ -303,8 +303,34 @@ q & 0 & 0 & 0 & 0 & 1 & 0\\
 \end{center}
 
 \begin{enumerate}
-    \item Dibuje utilizando \LaTeX  el árbol que representa las carpetas de la Figura \ref{fig:archivos} [5 pts].\\
+    \item Dibuje utilizando \LaTeX \  el árbol que representa las carpetas de la Figura \ref{fig:archivos} [5 pts].\\
     \textbf{Solución:}
+    %cambie de lugar la carpeta amogus y certamenes porque me desordenaban todo kjsfsd
+    \begin{tikzpicture}
+        \tikzstyle{level 1}=[sibling distance=4.3cm, level distance=1.9cm]
+        \tikzstyle{level 2}=[sibling distance=1.9cm, level distance=2.4cm]
+        \tikzstyle{level 3}=[sibling distance=1.5cm]
+        \node {INF152}
+            child {node {Certamenes}
+                child {node {Certamen1}}
+                child {node {Certamen2}}
+        }
+            child {node {Amogus}
+                child[grow= -120, level distance=2.75cm] {node {SUS}
+                    child {node {Notas Tarea1}}
+                    child {node {Notas Tarea2}}
+                    child {node {Notas Tarea3}}}
+                child[grow= -75, level distance=2.55cm] {node {Tripulante}
+                    child {node {Jueguito}}
+                    child {node {README}}}
+        }
+            child {node {Clases}
+                child {node {Unidad1}}
+                child {node {Unidad2}}
+                child {node {Unidad3}}
+        };
+    \end{tikzpicture}
+
     \item Utilice los algoritmos de búsqueda en árboles para encontrar la solución del certamen 1 de la carpeta \textbf{Certamen1} y luego, realice los mismos pasos para encontrar un archivo dentro de la carpeta \textbf{Notas Tarea1}. ¿Puede determinar cuál búsqueda es más rápida en cada caso? Justifique.\\
     \textit{(Puede dibujar con Tikz el paso a paso en los grafos y marcar con colores las rutas de búsqueda. Otra forma es explicar con pseudocódigo o puede escribir un ruteo de los algoritmos. Lo importante es que explique formalmente cómo ejecuta los algoritmos.)} [25 pts].
     

@@ -11,7 +11,7 @@ public abstract class Persona{
     }
 
     public abstract void mejorar();
-    public abstract void trabajo_realizado();
+    public abstract int trabajo_realizado();
 
 
 
@@ -31,25 +31,25 @@ public abstract class Persona{
     public String getNombre(){
         return nombre;
     }
-    public void setNombre(String x){
-        nombre = x;
+    public void setNombre(String new_nombre){
+        nombre = new_nombre;
     }
     public int getEdad(){
         return edad;
     }
-    public void setEdad(int x){
-        edad = x;
+    public void setEdad(int new_edad){
+        edad = new_edad;
     }
     public int getNivel(){
         return nivel;
     }
-    public void setNivel(int x){
-        nivel = x;
+    public void setNivel(int new_nivel){
+        nivel = new_nivel;
     }
     public int getProductividad(){
         return productividad;
     }
-    public void setProductividad(int x){
-        productividad= x;
+    public void setProductividad(int new_productividad){
+        productividad = new_productividad;
     }
 }
