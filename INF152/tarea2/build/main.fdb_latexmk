@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1651905290 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" "build/main.pdf" "main" 1651905292
+["pdflatex"] 1652425512 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" "build/main.pdf" "main" 1652425514
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1651636846 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Diego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1649998813 10246961 5da53bb2b8901c3729fe5a773d41703a ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233948248 1004 54797486969f23fa377b128694d548df ""
@@ -29,9 +29,9 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247596666 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
-  "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580386558 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575567500 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1645880046 147649 823237dc86e8acfaa45204ca8085a60e ""
@@ -71,6 +71,7 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryautomata.code.tex" 1621073245 3986 90961e1e824ee04363a83e4b53cbd527 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex" 1621073245 919 938802205ca20d7c36615aabc4d34be2 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex" 1621073245 11518 738408f795261b70ce8dd47459171309 ""
+  "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytrees.code.tex" 1621073245 3360 d7547ac810d5d8570c7b6f7c224d69da ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex" 1621073245 186007 6e7dfe0bd57520fd5f91641aa72dcac8 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibraryarrows.code.tex" 1621073245 31874 89148c383c49d4c72114a76fd0062299 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex" 1621073245 32995 ac577023e12c0e4bd8aa420b2e852d1a ""
@@ -174,11 +175,11 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/tools/verbatim.sty" 1636706660 7392 39729ae6a807e217edf1442cf8fab2c2 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388486852 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636281272 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "build/main.aux" 1651905291 2719 823a8eba2902120045712ebb1336ab18 "pdflatex"
-  "build/main.out" 1651905291 638 256a15bd4fea849bee3404957705e7f3 "pdflatex"
-  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" 1651905290 12444 18b0dd0af95afe04287805b58f9486cf ""
+  "build/main.aux" 1652425513 3082 1217b9b1bdd4aed25fa45a974a22cf1e "pdflatex"
+  "build/main.out" 1652425513 638 256a15bd4fea849bee3404957705e7f3 "pdflatex"
+  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea2/main.tex" 1652425511 16712 a937d0e7b9b442cbb175c9447511a5ba ""
   "inf152.png" 1650902048 34511 8cb594630035f7ca345679d2614c10da ""
-  "main.tex" 1651905290 12444 18b0dd0af95afe04287805b58f9486cf ""
+  "main.tex" 1652425511 16712 a937d0e7b9b442cbb175c9447511a5ba ""
   (generated)
   "build/main.aux"
   "build/main.log"

@@ -23,6 +23,7 @@
 \usepackage{tikz}
 %\usetikzlibrary{shapes}
 \usetikzlibrary{arrows,automata}
+\usetikzlibrary{trees}
 
 \tikzset{
     %Define standard arrow tip
@@ -169,34 +170,39 @@ Aquí tiene un pseudocódigo de ejemplo, que puede utilizar como plantilla para 
 \begin{algorithmic}[1]
 
 \STATE{\textbf{Method} int getLeast(String line, int givenNumber)}
-\STATE{\textbf{int} x $\leftarrow$ 0}
-\STATE{\textbf{int} y $\leftarrow$ 0}
+\STATE{\textbf{int} $x \gets 0$}
+\STATE{\textbf{int} $y \gets 0$}
 \STATE{\textbf{int} list $\leftarrow$ list() }
+\STATE{\textbf{int} largo $\leftarrow$ len(line)}
 \FOR{item in line}
-    \STATE{y $\leftarrow$ y+1}
-    \STATE{\textbf{if} item \textbf{equals} ' ' \textbf{do}}
-    \STATE{\hskip1.0em list.append( stringToInt(line[x:y]) )}
-    \STATE{\hskip1.0em x $\leftarrow$ y}
-    \STATE{\textbf{end if}}
+    \IF{item \textbf{equals} ' ' \textbf{and} y $ >$ 0}
+        \STATE{list.append(stringToInt(line[x:y]))}
+        \STATE{$ x \gets y+1$}
+    \ENDIF
+    \IF{ $y$ \textbf{equals} largo -1}
+        \STATE{list.append(stringToInt(line[x:y+1]))}
+    \ENDIF
+    \STATE{$y \gets y+1$}
 \ENDFOR
-\STATE{\textbf{int} maxValue $\leftarrow$ 0}
-\FOR{element1 in list}
-    \STATE{\textbf{if} element1 $ >$ maxValue \textbf{do}}
-    \STATE{\hskip1.0em maxValue $\leftarrow$ element1}
-    \STATE{\textbf{end if}}
+\STATE{\textbf{int} $maxValue \gets 0$}
+\FOR{$element1$ in list}
+    \IF{$element1   >  maxValue$}
+        \STATE{$ maxValue \gets element1$}
+    \ENDIF
 \ENDFOR
-\STATE{\textbf{if} maxValue $\leqslant$ givenNumber \textbf{do}}
-\STATE{\hskip1.0em \textbf{return} -1}
-\STATE{\textbf{end if}}
-\FOR{element2 in list}
-    \STATE{\textbf{if} element2 $ >$ givenNumber \textbf{and} element2 $ < $ maxValue \textbf{do}}
-    \STATE{\hskip1.0em maxValue $\leftarrow$ element2}
-    \STATE{\textbf{endif}}
+\IF{$maxValue \leq givenNumber$}
+    \STATE{\textbf{return} -1}
+\ENDIF
+\FOR{$element2$ in list}
+    \IF{$ element2  > givenNumber$ \textbf{and} $element2  <  maxValue$ }
+        \STATE{$maxValue \gets element2$}
+    \ENDIF
 \ENDFOR
-\STATE{\textbf{return} maxValue}
+\STATE{\textbf{return} $maxValue$}
 \STATE{\textit{// list() puede ser reemplazado por lista[], pero debe ser una estructura iterable}}
 \STATE{\textit{// y se asume la existencia de un metodo append() o parecido que agrege elementos a lista}}
 \STATE{\textit{// se asume la existencia de una funcion stringToInt() que transforme strings a enteros}}
+
 
 \end{algorithmic}
 \caption{Find the minimum value larger than the parameter} %titulo
@@ -279,15 +285,100 @@ q & 0 & 0 & 0 & 0 & 1 & 0\\
 \item Utilizando el paquete Tikz de \LaTeX, dibuje los Grafos 1 y 2 expresados como matriz de adyacencia en las Tablas 1 y 2. No se aceptarán imágenes \textit{(El package ya está incluido en el header)} [10 pts].
 
 \textbf{Solución:}
+\newline
+
+\begin{minipage}[b]{0.2\textwidth}
+\centering
+\begin{tikzpicture}[auto, node distance=1.5 cm,semithick]
+\tikzstyle{every state}=[draw,minimum size=0.6cm]
+
+\node[state] (l) {$l$};
+\node[state] (m) [right of= l] {$m$};
+\node[state] (n) [below of= l] {$n$};
+\node[state] (o) [right of= n] {$o$};
+\node[state] (q) [below of= n] {$q$};
+\node[state] (p) [right of= q] {$p$};
+
+\path   (n) 	edge				node {}(l)
+                edge                node {}(o)
+                edge                node {}(p)
+        (m)     edge                node {}(l)
+        (o)     edge                node {}(l)
+                edge                node {}(p)
+        (p)     edge                node {}(q);
+
+\end{tikzpicture}
+\captionof{figure}{Grafo 1.}
+\label{oliwis}
+\end{minipage}
+\hskip3.0em
+\begin{minipage}[b]{0.4\textwidth}
+    \centering
+    \begin{tikzpicture}[auto, node distance=1.5 cm,semithick]
+    \tikzstyle{every state}=[draw,minimum size=0.6cm]
+    
+    \node[state] (a) {$a$};
+    \node[state] (b) [below of=a]{$b$};
+    \node[state] (c) [below of=b]{$c$};
+    \node[state] (d) [right of=c]{$d$};
+    \node[state] (e) [right of=a]{$e$};
+    \node[state] (f) [right of=e]{$f$};
+    \node[state] (g) [below of =f]{$g$};
+    \node[state] (h) [right of=d]{$h$};
+    
+    \path   (b) 	edge				node {}(a)
+                    edge                node {}(c)
+                    edge                node {}(d)
+                    edge                node {}(g)
+            (d)     edge                node {}(c)
+                    edge                node {}(e)
+                    edge                node {}(h)
+            (g)     edge                node {}(e)
+                    edge                node {}(f)
+                    edge                node {}(h)
+            (e)     edge                node {}(a)
+                    edge                node {}(f);  
+    
+    \end{tikzpicture}
+    \captionof{figure}{Grafo 2.}
+    \label{oliwis2}
+    \end{minipage}
 
 \item Demuestre o refute la existencia de un circuito de Euler en el grafo 2. ¿Existe Camino de Euler? En caso de que exista, nombre uno. [15 pts].
 
 \textbf{Solución:}
+El camino de Euler tiene una condicion que lo define, la cual es \{$\exists \  2 \ v \in V \ | \ \delta(v) $ es impar\}, lo
+que en el caso del grafo 2 no se cumple pues todos sus nodos son de grado par, lo que da lugar a la definicion del Circuito de Euler.
 
 \item Demuestre o refute: Grafo \textbf{1} y Grafo \textbf{3} son isomorfos [20 pts]
 
 \textbf{Solución:}
-
+\newline
+Podemos expresar ambos grafos tal que $ G_1 = \{ V_1, E_1\} $ y $ G_3 = \{V_3, E_3\}$, entonces uno de los 
+requisitos para que sean isomorfos es que el grado de $ V$ sea igual, entonces:
+\newline
+\begin{equation*}
+    |V_1| = 6  \quad \textrm{;} \quad  |V_3| = 6
+\end{equation*}
+Una vez sabemos que son grafos con la misma cantidad de nodos, debemos definir la funcion biyectiva que relacione estos nodos segun su grado.
+\begin{equation*}
+    \psi (m) = d ,\ 
+    \psi (l) = c ,\ 
+    \psi (n) = b ,\ 
+    \psi (o) = e ,\ 
+    \psi (p) = a ,\ 
+    \psi (q) = f
+\end{equation*}
+y como $ \psi()$ debe ser biyectiva, tambien hay que definir su inversa:
+\begin{equation*}
+    \psi^{-1} (d) = m ,\ 
+    \psi^{-1} (c) = l ,\ 
+    \psi^{-1} (b) = n ,\ 
+    \psi^{-1} (e) = o ,\ 
+    \psi^{-1} (a) = p ,\ 
+    \psi^{-1} (f) = q
+\end{equation*}
+Y así la funcion $ \psi()$ define el isomorfismo entre los grafos 1 y 3.
 
 \end{enumerate}
 \newpage
@@ -306,30 +397,64 @@ q & 0 & 0 & 0 & 0 & 1 & 0\\
     \item Dibuje utilizando \LaTeX \  el árbol que representa las carpetas de la Figura \ref{fig:archivos} [5 pts].\\
     \textbf{Solución:}
     %cambie de lugar la carpeta amogus y certamenes porque me desordenaban todo kjsfsd
+    \newline
+    
     \begin{tikzpicture}
-        \tikzstyle{level 1}=[sibling distance=4.3cm, level distance=1.9cm]
-        \tikzstyle{level 2}=[sibling distance=1.9cm, level distance=2.4cm]
-        \tikzstyle{level 3}=[sibling distance=1.5cm]
+        [
+            every node/.append style = {draw, anchor = west},
+            grow via three points={one child at (0.5,-0.8) and two children at (0.5,-0.8) and (0.5,-1.6)},
+            edge from parent path={(\tikzparentnode\tikzparentanchor) |- (\tikzchildnode\tikzchildanchor)}]
         \node {INF152}
+            child {node {Amogus}
+                child {node {SUS}
+                    child {node {Notas Tarea1}
+                        child {node {Notas CC.xlsx}}
+                        child {node {Notas SJ.xlsx}}
+                        child {node {Solucion T1.pdf}}
+                        child {node {Tarea1.pdf}}}
+                    child [missing] {}
+                    child [missing] {}
+                    child [missing] {}
+                    child [missing] {}
+                    child {node {Notas Tarea2}}
+                    child {node {Notas Tarea3}}}
+                child [missing] {}
+                child [missing] {}
+                child [missing] {} 
+                child [missing] {}
+                child [missing] {}
+                child [missing] {}
+                child [missing] {} 
+                child {node {Tripulante}
+                    child {node {Jueguito}}
+                    child[anchor = west, level distance= 4cm] {node {README}}}
+        }   
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
             child {node {Certamenes}
                 child {node {Certamen1}}
                 child {node {Certamen2}}
-        }
-            child {node {Amogus}
-                child[grow= -120, level distance=2.75cm] {node {SUS}
-                    child {node {Notas Tarea1}}
-                    child {node {Notas Tarea2}}
-                    child {node {Notas Tarea3}}}
-                child[grow= -75, level distance=2.55cm] {node {Tripulante}
-                    child {node {Jueguito}}
-                    child {node {README}}}
-        }
+                child {node {Certamen3}}
+        }   
+            child [missing] {}
+            child [missing] {}
+            child [missing] {}
             child {node {Clases}
                 child {node {Unidad1}}
                 child {node {Unidad2}}
                 child {node {Unidad3}}
         };
     \end{tikzpicture}
+
 
     \item Utilice los algoritmos de búsqueda en árboles para encontrar la solución del certamen 1 de la carpeta \textbf{Certamen1} y luego, realice los mismos pasos para encontrar un archivo dentro de la carpeta \textbf{Notas Tarea1}. ¿Puede determinar cuál búsqueda es más rápida en cada caso? Justifique.\\
     \textit{(Puede dibujar con Tikz el paso a paso en los grafos y marcar con colores las rutas de búsqueda. Otra forma es explicar con pseudocódigo o puede escribir un ruteo de los algoritmos. Lo importante es que explique formalmente cómo ejecuta los algoritmos.)} [25 pts].
