@@ -6,8 +6,8 @@ public class Cientifico extends Persona {
     public void mejorar(){
         setProductividad( getProductividad() + 1);
     }
-    public int trabajo_realizado(){
-        int temp = ((getProductividad()*3) + getNivel());
+    public Integer trabajo_realizado(){
+        Integer temp = ((getProductividad()*3) + getNivel());
         return temp;
     }
 

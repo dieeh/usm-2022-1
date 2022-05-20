@@ -2,16 +2,16 @@ package tarea.files;
 
 public abstract class Persona{
     private String nombre;
-    private int edad;
-    private int nivel;
-    private int productividad;
+    private Integer edad;
+    private Integer nivel;
+    private Integer productividad;
 
     public void envejecer(){
         edad +=1;
     }
 
     public abstract void mejorar();
-    public abstract int trabajo_realizado();
+    public abstract Integer trabajo_realizado();
 
 
 
@@ -34,22 +34,22 @@ public abstract class Persona{
     public void setNombre(String new_nombre){
         nombre = new_nombre;
     }
-    public int getEdad(){
+    public Integer getEdad(){
         return edad;
     }
-    public void setEdad(int new_edad){
+    public void setEdad(Integer new_edad){
         edad = new_edad;
     }
-    public int getNivel(){
+    public Integer getNivel(){
         return nivel;
     }
-    public void setNivel(int new_nivel){
+    public void setNivel(Integer new_nivel){
         nivel = new_nivel;
     }
-    public int getProductividad(){
+    public Integer getProductividad(){
         return productividad;
     }
-    public void setProductividad(int new_productividad){
+    public void setProductividad(Integer new_productividad){
         productividad = new_productividad;
     }
 }
