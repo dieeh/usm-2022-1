@@ -3,6 +3,7 @@ package tarea.files;
 public class Herrero extends Persona {
 
     public void mejorar(){
+        setNivel( getNivel() + 1);
         setProductividad( getProductividad() + 3);
     }
 

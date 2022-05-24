@@ -4,6 +4,7 @@ public class Granjero extends Persona {
     
 
     public void mejorar(){
+        setNivel( getNivel() + 1);
         setProductividad( getProductividad() + 2);
     }
     public Integer trabajo_realizado(){

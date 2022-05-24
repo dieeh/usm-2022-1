@@ -8,8 +8,10 @@ public abstract class Edificio{
     private Integer capacidad;
     private ArrayList<Persona> personas;
 
+
     public abstract ArrayList<Integer> producir();
     public abstract void mejorar();
+
 
     public void sacar_persona(String name){
         for (int i = 0; i < personas.size(); i++) {
@@ -18,11 +20,13 @@ public abstract class Edificio{
             }
         }
     }
-
     public void agregar_persona(Persona wacho){
         personas.add(wacho);
     }
-
+    
+    public ArrayList<Persona> getPersonas(){
+        return personas;
+    }
 
     public void setNombre(String x){
         nombre = x;
@@ -41,5 +45,8 @@ public abstract class Edificio{
     }
     public Integer getCapacidad(){
         return capacidad;
+    }
+    public void initArray(){
+        personas = new ArrayList<Persona>();
     }
 }
