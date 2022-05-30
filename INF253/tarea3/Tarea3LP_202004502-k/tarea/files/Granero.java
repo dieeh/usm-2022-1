@@ -14,10 +14,10 @@ public class Granero extends Edificio{
         int contador = 0;
         int contadorCient = 0;
         for (int i = 0; i < temporal.size(); i++) {
-            if (temporal.get(i).getClass().getName() == "Granjero"){
+            if (temporal.get(i).getClass().getName().equals("Granjero")){
                 contador += 1;
             }
-            if (temporal.get(i).getClass().getName() == "Cientifico"){
+            if (temporal.get(i).getClass().getName().equals("Cientifico")){
                 contadorCient += 1;
             }
         }
@@ -25,9 +25,7 @@ public class Granero extends Edificio{
         if (contador > (temporal.size()/2)) {
             flag = true;
         }
-        ArrayList<Integer> temp;
-        temp = new ArrayList<Integer>(4);
-
+        ArrayList<Integer> temp = new ArrayList<Integer>(4);
         if (flag == true) {
             Integer sum = 0;
             for (int i = 0; i < temporal.size(); i++) {
@@ -43,19 +41,17 @@ public class Granero extends Edificio{
             temp.add(0);
             temp.add(0);
         }
-
         //0 : javalares
         //1 : hierro
         //2 : trigo
         //3 : tecnologia
-
         return temp;
     }
 
     public Granero(String name){
         setNombre(name);
         setNivel(1);
-        setCapacidad(5);
+        setCapacidad(10);
         initArray();
     }
 }

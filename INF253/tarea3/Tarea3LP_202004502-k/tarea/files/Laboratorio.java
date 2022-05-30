@@ -10,8 +10,39 @@ public class Laboratorio extends Edificio {
     }
     
     public ArrayList<Integer> producir(){
-        
-        
+        ArrayList<Persona> temp = getPersonas();
+        Integer contador1 = 0; //cientificos
+        Integer contador2 = 0; //no cientificos
+        for (int i = 0; i < temp.size(); i++) {
+            if (temp.get(i).getClass().getName().equals("Cientifico")) {
+                contador1 += 1;
+            }else{
+                contador2 +=1;
+            }
+        }
+        boolean flag = false;
+        if (contador1 > 0.75*(contador1+contador2)){
+            flag = true;
+        }
+        ArrayList<Integer> tempor = new ArrayList<Integer>(4);
+        if (flag == true){
+            Integer suma = 0;
+            for (int i = 0; i < temp.size(); i++) {
+                if (temp.get(i).getClass().getName().equals("Cientifico")) {
+                    suma += temp.get(i).trabajo_realizado();
+                }
+            }
+            tempor.add(  (suma/ (temp.size()/contador2))  );
+            tempor.add(0);
+            tempor.add(0);
+            tempor.add(suma);
+        }else{
+            tempor.add(-4 * temp.size());
+            tempor.add(0);
+            tempor.add(0);
+            tempor.add(0);
+        }
+        return tempor;
     }
 
     public Laboratorio(String nombre){

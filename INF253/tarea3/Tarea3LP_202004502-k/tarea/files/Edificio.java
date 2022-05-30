@@ -15,7 +15,7 @@ public abstract class Edificio{
 
     public void sacar_persona(String name){
         for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).getNombre() == name) {
+            if (personas.get(i).getNombre().equals(name)) {
                 personas.remove(i);
             }
         }

@@ -10,12 +10,14 @@ public class Jugador {
     private Integer tecnologia;
     private ArrayList<Persona> personas;
     private ArrayList<Edificio> edificios;
-    private ArrayList<Atraccion> atracciones;
+    private ArrayList<Feria> ferias ;
+    private ArrayList<Museo> museos;
+    private ArrayList<Javapato> javapatos;
 
 
     public void sacar_persona(String persona){
         for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).getNombre() == persona) {
+            if (personas.get(i).getNombre().equals(persona)) {
                 personas.remove(i);
             }
         }
@@ -23,13 +25,47 @@ public class Jugador {
     public void agregar_persona(Persona persona){
         personas.add(persona);
     }
-    public void sacar_edificio(String edificio){}
+    public void sacar_edificio(String edificio){
+        for (int i = 0; i < edificios.size(); i++) {
+            if (edificios.get(i).getNombre().equals(edificio)){
+                personas.remove(i);
+            }
+        }
+    }
     public void agregar_edificio(Edificio edificio){
         edificios.add(edificio);
     }
-    public void sacar_atraccion(String atraccion){}
-    public void agregar_atraccion(Atraccion atraccion){
-        atracciones.add(atraccion);
+    public void sacar_atraccion(String atraccion, String clase){
+        if (clase.equals("Feria")){
+            for (int i = 0; i < ferias.size(); i++) {
+                if (ferias.get(i).getNombre().equals(atraccion)){
+                    ferias.remove(i);
+                }
+            }
+        }
+        if (clase.equals("Museo")){
+            for (int i = 0; i < museos.size(); i++) {
+                if (museos.get(i).getNombre().equals(atraccion)){
+                    museos.remove(i);
+                }
+            }
+        }
+        if (clase.equals("Javapato")){
+            for (int i = 0; i < javapatos.size(); i++) {
+                if (javapatos.get(i).getNombre().equals(atraccion)){
+                    javapatos.remove(i);
+                }
+            }
+        }
+    }
+    public void agregar_feria(Feria feria){
+        ferias.add(feria);
+    }
+    public void agregar_museo(Museo museo){
+        museos.add(museo);
+    }
+    public void agregar_javapato(Javapato javapato){
+        javapatos.add(javapato);
     }
 
     public void setNombre(String x){
@@ -65,7 +101,9 @@ public class Jugador {
     public void initArrays(){
         personas = new ArrayList<Persona>();
         edificios = new ArrayList<Edificio>();
-        atracciones = new ArrayList<Atraccion>(); 
+        ferias = new ArrayList<Feria>();
+        museos = new ArrayList<Museo>();
+        javapatos = new ArrayList<Javapato>();
     }
 
     public Jugador(String x){
