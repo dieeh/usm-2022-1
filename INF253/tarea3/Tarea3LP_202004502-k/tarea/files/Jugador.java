@@ -106,10 +106,28 @@ public class Jugador {
         javapatos = new ArrayList<Javapato>();
     }
 
+    public ArrayList<Persona> getPersonas(){
+        return personas;
+    }
+    public ArrayList<Edificio> getEdificios(){
+        return edificios;
+    }
+    public ArrayList<Feria> getFerias(){
+        return ferias;
+    }
+    public ArrayList<Museo> getMuseos(){
+        return museos;
+    }
+    public ArrayList<Javapato> getJavapatos(){
+        return javapatos;
+    }
+
+
+
     public Jugador(String x){
         nombre = x;
         javalares = 30;
-        hierro = 15;
+        hierro = 30;
         trigo = 10;
         tecnologia = 6;
         initArrays();
