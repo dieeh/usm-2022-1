@@ -9,13 +9,13 @@ public class Feria implements Atraccion {
         Integer personasG, personasH, personasC;
         personasC = personasG = personasH = 0;
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getClass().getName().equals("Cientifico")){
+            if (lista.get(i) instanceof Cientifico){
                 personasC +=1;
             }
-            if (lista.get(i).getClass().getName().equals("Herrero")){
+            if (lista.get(i) instanceof Herrero){
                 personasH +=1;
             }
-            if (lista.get(i).getClass().getName().equals("Granjero")){
+            if (lista.get(i) instanceof Granjero){
                 personasG +=1;
             }
         }

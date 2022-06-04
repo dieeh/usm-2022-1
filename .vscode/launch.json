@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch Javation",
+      "request": "launch",
+      "mainClass": "tarea.files.Javation",
+      "projectName": "usm-2022-1_524640ca"
+    },
+    {
       "name": "Python: Archivo actual",
       "type": "python",
       "request": "launch",

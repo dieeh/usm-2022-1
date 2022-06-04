@@ -14,20 +14,20 @@ public class Herreria extends Edificio {
         Integer contador1 = 0; //cientificos
         Integer contador2 = 0; //no herreros
         for (int i = 0; i < temp.size(); i++) {
-            if (temp.get(i).getClass().getName().equals("Cientifico")) {
+            if (temp.get(i) instanceof Cientifico) {
                 contador1 += 1;
             }
-            if (!(temp.get(i).getClass().getName().equals("Herrero"))){
+            if (!(temp.get(i) instanceof Herrero)){
                 contador2 +=1;
             }
         }
         ArrayList<Integer> tempor = new ArrayList<Integer>(4);
         Integer sum1 = 0, sum2 = 0;
         for (int i = 0; i < temp.size(); i++) {
-            if (temp.get(i).getClass().getName().equals("Herrero")) {
+            if (temp.get(i) instanceof Herrero) {
                 sum1 += temp.get(i).trabajo_realizado();
             }
-            if (temp.get(i).getClass().getName().equals("Cientifico")) {
+            if (temp.get(i) instanceof Cientifico) {
                 sum2 += (temp.get(i).trabajo_realizado() * (1/3));
             }
         }

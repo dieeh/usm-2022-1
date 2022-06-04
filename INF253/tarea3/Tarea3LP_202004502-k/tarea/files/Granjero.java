@@ -16,6 +16,6 @@ public class Granjero extends Persona {
         setNombre(x);
         setEdad(15);
         setProductividad(8);
-        setNivel(0);
+        setNivel(1);
     }
 }

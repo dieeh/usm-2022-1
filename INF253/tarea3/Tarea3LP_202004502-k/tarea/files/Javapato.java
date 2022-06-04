@@ -5,17 +5,19 @@ import java.util.ArrayList;
 public class Javapato implements Atraccion {
     private String nombre;
 
+
+
     public Integer visitar(ArrayList<Persona> lista) {
         Integer personasG, personasH, personasC;
         personasC = personasG = personasH = 0;
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getClass().getName().equals("Cientifico")){
+            if (lista.get(i) instanceof Cientifico){
                 personasC +=1;
             }
-            if (lista.get(i).getClass().getName().equals("Herrero")){
+            if (lista.get(i) instanceof Herrero){
                 personasH +=1;
             }
-            if (lista.get(i).getClass().getName().equals("Granjero")){
+            if (lista.get(i) instanceof Granjero){
                 personasG +=1;
             }
         }
@@ -24,6 +26,11 @@ public class Javapato implements Atraccion {
         return cantidad_reto;
     }
 
+
+    /**
+     * Setter y getter de la clase
+     * 
+     */
     public void setNombre(String x){
         nombre = x;
     }

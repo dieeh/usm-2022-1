@@ -8,8 +8,20 @@ public abstract class Edificio{
     private Integer capacidad;
     private ArrayList<Persona> personas;
 
-
+    /**
+     * ArrayList<Integer> producir()
+     * 
+     * Retorna un array de largo 4 donde cada celda tiene
+     * un valor que corresponde a los Javalares, Hierro, Trigo y Tecnologia
+     * producidos por el edificio basado en la cantidad de personas de cada clase
+     */
     public abstract ArrayList<Integer> producir();
+
+    /**
+     * void mejorar()
+     * 
+     * Mejora el nivel del edificio y aumenta su capacidad
+    */
     public abstract void mejorar();
 
 
@@ -24,6 +36,10 @@ public abstract class Edificio{
         personas.add(wacho);
     }
     
+
+    /**
+     * Setters y getters de la clase
+     */
     public ArrayList<Persona> getPersonas(){
         return personas;
     }
@@ -46,6 +62,12 @@ public abstract class Edificio{
     public Integer getCapacidad(){
         return capacidad;
     }
+
+    /**
+     * void InitArray()
+     * 
+     * Inicializa los arrays del objeto
+     */
     public void initArray(){
         personas = new ArrayList<Persona>();
     }

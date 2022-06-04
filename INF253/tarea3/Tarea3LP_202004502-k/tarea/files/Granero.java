@@ -14,10 +14,10 @@ public class Granero extends Edificio{
         int contador = 0;
         int contadorCient = 0;
         for (int i = 0; i < temporal.size(); i++) {
-            if (temporal.get(i).getClass().getName().equals("Granjero")){
+            if (temporal.get(i) instanceof Granjero){
                 contador += 1;
             }
-            if (temporal.get(i).getClass().getName().equals("Cientifico")){
+            if (temporal.get(i) instanceof Cientifico){
                 contadorCient += 1;
             }
         }

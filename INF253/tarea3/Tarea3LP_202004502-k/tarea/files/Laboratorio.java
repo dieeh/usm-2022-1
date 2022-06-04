@@ -14,7 +14,7 @@ public class Laboratorio extends Edificio {
         Integer contador1 = 0; //cientificos
         Integer contador2 = 0; //no cientificos
         for (int i = 0; i < temp.size(); i++) {
-            if (temp.get(i).getClass().getName().equals("Cientifico")) {
+            if (temp.get(i) instanceof Cientifico) {
                 contador1 += 1;
             }else{
                 contador2 +=1;
@@ -28,7 +28,7 @@ public class Laboratorio extends Edificio {
         if (flag == true){
             Integer suma = 0;
             for (int i = 0; i < temp.size(); i++) {
-                if (temp.get(i).getClass().getName().equals("Cientifico")) {
+                if (temp.get(i) instanceof Cientifico) {
                     suma += temp.get(i).trabajo_realizado();
                 }
             }

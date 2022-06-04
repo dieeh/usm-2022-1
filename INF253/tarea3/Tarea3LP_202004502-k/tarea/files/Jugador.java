@@ -14,7 +14,14 @@ public class Jugador {
     private ArrayList<Museo> museos;
     private ArrayList<Javapato> javapatos;
 
-
+    /**
+     * void sacar_persona(String persona)
+     * 
+     * Saca a la persona que tenga de nombre el parametro entregado
+     * de la lista de personas del jugador
+     * 
+     * String persona: nombre de la persona a sacar
+     */
     public void sacar_persona(String persona){
         for (int i = 0; i < personas.size(); i++) {
             if (personas.get(i).getNombre().equals(persona)) {
@@ -22,9 +29,24 @@ public class Jugador {
             }
         }
     }
+
+    /**
+     * void agregar_persona(Persona persona)
+     * 
+     * Agrega el objeto Persona a el array personas
+     */
     public void agregar_persona(Persona persona){
         personas.add(persona);
     }
+
+    /**
+     * void sacar_edificio(String edificio)
+     * 
+     * Saca el edificio que tenga de nombre el parametro entregado
+     * de la lista de edificios del jugador
+     * 
+     * String edificio: nombre del edificio a sacar
+     */
     public void sacar_edificio(String edificio){
         for (int i = 0; i < edificios.size(); i++) {
             if (edificios.get(i).getNombre().equals(edificio)){
@@ -32,9 +54,22 @@ public class Jugador {
             }
         }
     }
+
+    /**
+     * void agregar_edificio(Edificio edificio)
+     * 
+     * Agrega el objeto Edificio a el array edificios
+     */
     public void agregar_edificio(Edificio edificio){
         edificios.add(edificio);
     }
+
+    /*
+     * void sacar_atraccion(String atraccion, String clase)
+     * 
+     * Saca la atraccion de la lista correspondiente segun el parametro
+     * clase entregado
+     */
     public void sacar_atraccion(String atraccion, String clase){
         if (clase.equals("Feria")){
             for (int i = 0; i < ferias.size(); i++) {
@@ -58,16 +93,39 @@ public class Jugador {
             }
         }
     }
+
+    /**
+     * void agregar_feria(Feria feria)
+     * 
+     * agrega el objeto Feria a la lista de ferias
+     */
     public void agregar_feria(Feria feria){
         ferias.add(feria);
     }
+
+    /**
+     * void agregar_museo(Museo museo)
+     * 
+     * agrega el objeto museo a la lista de museos
+     */
     public void agregar_museo(Museo museo){
         museos.add(museo);
     }
+
+    /**
+     * void agregar_javapato(Javapato javapato){
+     * 
+     * agrega el objeto Javapato a la lista de Javapatos
+     */
     public void agregar_javapato(Javapato javapato){
         javapatos.add(javapato);
     }
 
+
+    /**
+     * Getters y setters de la clase
+     * 
+     */
     public void setNombre(String x){
         nombre = x;
     }
@@ -98,14 +156,6 @@ public class Jugador {
     public Integer getTecnologia(){
         return tecnologia;
     }
-    public void initArrays(){
-        personas = new ArrayList<Persona>();
-        edificios = new ArrayList<Edificio>();
-        ferias = new ArrayList<Feria>();
-        museos = new ArrayList<Museo>();
-        javapatos = new ArrayList<Javapato>();
-    }
-
     public ArrayList<Persona> getPersonas(){
         return personas;
     }
@@ -120,6 +170,19 @@ public class Jugador {
     }
     public ArrayList<Javapato> getJavapatos(){
         return javapatos;
+    }
+
+    /**
+     * void InitArray()
+     * 
+     * Inicializa los arrays del objeto
+     */
+    public void initArrays(){
+        personas = new ArrayList<Persona>();
+        edificios = new ArrayList<Edificio>();
+        ferias = new ArrayList<Feria>();
+        museos = new ArrayList<Museo>();
+        javapatos = new ArrayList<Javapato>();
     }
 
 

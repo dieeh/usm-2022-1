@@ -16,6 +16,6 @@ public class Herrero extends Persona {
         setNombre(x);
         setEdad(18);
         setProductividad(9);
-        setNivel(0);
+        setNivel(1);
     }
 }

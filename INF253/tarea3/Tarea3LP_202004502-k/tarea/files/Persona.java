@@ -6,11 +6,30 @@ public abstract class Persona{
     private Integer nivel;
     private Integer productividad;
 
+
+    /**
+    * void envejecer()
+    * 
+    * Aumenta en 1 la edad de la persona
+    */
     public void envejecer(){
         edad +=1;
     }
 
+    /**
+     * void mejorar()
+     * 
+     * Aumenta en 1 el nivel de la persona y aumenta la productividad
+     * dependiendo de la clase
+     */
     public abstract void mejorar();
+
+    /**
+     * Integer trabajo_realizado()
+     * 
+     * Retorna un Integer cuyo valor depende de la productividad
+     * y el nivel de la persona
+     */
     public abstract Integer trabajo_realizado();
 
 

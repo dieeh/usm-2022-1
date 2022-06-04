@@ -2,7 +2,7 @@ package tarea.files;
 
 public class Cientifico extends Persona {
 
-
+    
     public void mejorar(){
         setNivel( getNivel() + 1);
         setProductividad( getProductividad() + 1);
@@ -16,6 +16,6 @@ public class Cientifico extends Persona {
         setNombre(x);
         setEdad(24);
         setProductividad(10);
-        setNivel(0);
+        setNivel(1);
     }
 }
