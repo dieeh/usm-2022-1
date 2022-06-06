@@ -95,6 +95,9 @@ public class Javation {
                 System.out.println("¿Cuál va a ser su nombre?");
                 nombre_ediCrear = input.nextLine();
                 
+
+
+                
                 // (((player.getJavalares() >= 10) && (player.getHierro() >= 5)) && (player.getTrigo() >= 5))
                 // (((player.getJavalares() >= 30) && (player.getHierro() >= 10)) && (player.getTecnologia() >= 6))
                 // (((player.getJavalares() >= 15) && (player.getHierro() >= 3)) && ((player.getTrigo() >= 3) && (player.getTecnologia() >= 3)))
