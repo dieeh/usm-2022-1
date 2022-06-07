@@ -1,0 +1,159 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{fullpage}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{verbatim}
+\usepackage[hidelinks]{hyperref}
+\usepackage{subfigure}
+\usepackage[hypcap=false]{caption}
+\usepackage{tikz}
+\usepackage{ upgreek }
+\usepackage{ amssymb }
+%\usetikzlibrary{shapes}
+\usetikzlibrary{arrows,automata}
+
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,}
+}
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\begin{document}
+
+\thispagestyle{empty}
+ 	
+\begin{minipage}[t]{0.6\textwidth}
+
+{\LARGE \textbf{INF152} Estructuras Discretas - Tarea 3}
+
+{\large \textbf{Profesores}: Claudio Lobos, Jorge Díaz, Sebastián Gallardo, María Paz Vergara, Miguel Guevara.}\\
+{\small \textbf{Ayudantes}: Valentina Aróstica, Bryan González, Sofía Mañana, Sofía Riquelme, Carla Herrera, Álvaro Gaete, Constanza Alvarado, Maciel Ripetti, Maureen Gavilán, Ignacio Jorquera, Fernanda Avendaño y Luis González.} 
+
+Universidad T\'ecnica Federico Santa Mar\'{\i}a
+
+Departamento de Inform\'atica -- SJ - CC 
+
+
+
+\end{minipage}
+\hfill
+
+
+
+\vspace{0.3cm}
+
+
+\begin{center}
+    \huge Tarea 3
+\end{center}
+
+\section{Reglas generales}
+\begin{itemize}
+    
+    \item Para resolver cada pregunta, debe hacer uso de los contenidos, algoritmos y métodos aprendidos en el curso. Si su respuesta final es correcta, pero se ha utilizado un método distinto al enseñado en clases no se asignará puntaje. Ídem si entrega resultados sin desarrollo.
+    
+    \item La tarea debe realizarse en grupos de hasta 3 integrantes \textbf{\large DEL MISMO PARALELO}. Esta vez no habrán excepciones.
+    
+    \item Se descontará 5 puntos por warnings en el .tex (Excepto los warnings azules de Overleaf \textit{Underfull \textbackslash hbox (badness 10000)}, estos no tendrán descuentos).
+    
+    \item Si su proyecto .tex \textbf{no} compila tendrá 100 puntos de descuento sin opción a recorrección, inclusive si existe un .pdf con el desarollo de la tarea.
+        
+    \item Tiene hasta las 23:59 hrs del día 19 de junio para entregar esta tarea vía Aula.
+    
+    \item No inserte su desarrollo en fotografías. Debe estar todo desarrollado en LaTex.
+    
+    \item Se restarán 10 puntos de su nota sucesivamente por cada hora de atraso.
+    
+    \subsection{Entrega}
+     \item Sólo un integrante del grupo debe realizar la entrega.
+     
+     \item Se debe entregar un solo archivo .zip el cual debe contener:
+     \begin{enumerate}
+         \item El o los archivos .tex para compilar su tarea.
+         \item Las imagenes adjuntas que permiten compilar el enunciado
+         \item Un archivo README.txt que contenga los nombres de los integrantes del grupo, y sus roles.
+     \end{enumerate}
+     \item El archivo .zip debe tener como nombre: nombre\_apellido.zip, donde el nombre es el de el estudiante que hace la entrega.
+     \item No es necesario incluir el .pdf en el .zip
+
+    
+\end{itemize}
+\newpage
+\section{Preguntas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Captura8.JPG}
+    \caption{El detective Elvis Tek reparando la red neuronal }
+    \label{Captura8.JPG}
+\end{figure}
+\begin{enumerate}
+    %\item \textbf{[50\%]} Luego de pasar la primera prueba de la puerta de seguridad, nuestro detective Elvis Tek, o también conocido por los discretos como Elvis Tikz, recorre Discretilandia hasta llegar a la zona central. Una vez que llega, se percata que la zona de control está destruida y resulta ser que las conexiones que establecía la red neuronal para manejar a toda Discretilandia se han caído, a su vez, no le queda mucha batería a la fuente de control para restaurar cada actividad. No obstante, Elvis Tikz ha encontrado los planos respecto a las actividades que debe realizar en la red y la cantidad de energía que consume cada actividad en porcentaje, tomando en cuenta que las cantidades que se consumen de energía pueden variar entre 0\% y 500\%. Dichas especificaciones aparecen a continuación:
+    
+    \item \textbf{[50\%]} Luego de pasar la primera prueba de la puerta de seguridad, nuestro detective Elvis Tek, o también conocido por los discretos como Elvis Tikz, recorre Discretilandia hasta llegar a la zona central. Una vez que llega, se percata que la zona de control está destruida y resulta que las conexiones que establecían la red neuronal para manejar a toda Discretilandia, se han caído. Lamentablemente no le queda mucha batería a la fuente de control para restaurar cada actividad, aunque no todo está perdido. Elvis Tikz ha encontrado los planos respecto a las actividades que se deben realizar en la red y la cantidad de energía que consume cada actividad en porcentaje, las que varían entre 0\% y 500\%. Dichas especificaciones aparecen en la tabla \ref{act}.
+    
+    \begin{table}[H]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+    $Actividades$ & A & B & C & D & E & F & G & H & I & J & K \\ \hline
+     $Requisitos$ & - & A & A & B,K & B,K & B,K & C & F,G & D & E,H & C   \\\hline
+     $Energia$ & - & - & - & - & - & - & - & - & - & $\mu $ & - \\\hline
+    \end{tabular}
+    \caption{Tabla con actividades y requisitos}
+    \label{act}
+\end{table}
+    
+%Para su mala suerte, el villano que atacó  Discretilandia ha borrado el porcentaje de energía que consumen todas las actividades de la red. Sin embargo, nuestro detective ha encontrado una función Hash que permitiría hallar el consumo de energía de una gran parte de las actividades de la red, \textbf{a excepción de la actividad J}.\\
+
+Se puede apreciar que el villano que atacó  Discretilandia ha borrado el porcentaje de energía que consume cada una de las actividades de la red. Sin embargo, nuestro detective ha encontrado una función Hash que permitiría hallar el consumo de energía de una gran parte de las actividades de la red, \textbf{a excepción de la actividad J}.
+
+
+
+La función Hash es representada por: 
+\begin{equation}
+\mathcal{H}(x) = \tau \cdot x 
+\end{equation}
+siendo:
+\begin{equation}
+\tau = a \hspace{0.1cm} DIV \hspace{0.1cm} b
+\end{equation}
+
+donde $\boldsymbol{a}$ representa la suma de los dígitos verificadores de los roles de todos los integrantes del equipo, $\boldsymbol{b}$ representa la cantidad de integrantes en el equipo y $\boldsymbol{DIV}$ representa al operador división entera. Por otra parte, $\boldsymbol{x}$ representa el índice alfabético de las actividades. Vale decir, el índice alfabético de la actividad A, será 1. El índice alfabético de la actividad B, será 2, y así sucesivamente. Para los integrantes que posean dígito verificador k, utilicen el número 10.  Cabe mencionar que si el resultado de $\boldsymbol{\tau}$ les da 0, entonces, en vez de usar el dígito verificador, deben tomar el dígito anterior al dígito verificador de los roles de todos los integrantes, y así sucesivamente hasta que el valor $\boldsymbol{\tau}$ les dé distinto de 0. El detective Elvis Tikz les recuerda que la función Hash retornará la energía que consume la actividad
+correspondiente, a su vez, les encomienda las siguientes actividades para poder salvar a Discretilandia:\\
+
+a)\textbf{[20\%]} Desencripte la función Hash para hallar la energía que consume cada actividad y, utilizando el package Tikz de \LaTeX, construya un grafo con las descripciones de la tabla.\\
+b)\textbf{[15\%]} Determine el valor mínimo de $\mu $ de manera que la actividad J pertenezca a la ruta crítica de consumo de energía. La ruta crítica debe ser única. Justifique su respuesta y muestre dicha ruta junto con el consumo óptimo total de energía.\\
+c)\textbf{[15\%]} Indique, si es que es posible, en qué rango de valores se encontraría $\mu $ si para establecer la conexión completa de la red neuronal, se necesita consumir a lo más un 300\% de energía de la fuente de control, y se necesita al menos una holgura de un 20\%  para desarrollar la actividad D. En el caso de que no sea posible, fundamente el porqué.\\
+
+\item \textbf{[50\%]} Diseñe un grafo rotulado de al menos 7 nodos, dónde mínimo 5 de los nodos sean de grado mayor a 3 y 2 nodos de grado mayor o igual a 2. Además, debe asignarle peso a los arcos entre los nodos. Una vez listo, realice las siguientes actividades:
+
+\begin{enumerate}
+    \item \textbf{[25\%]} Ejecute el algoritmo Dijkstra y muestre el procedimiento, incluyendo las tablas generadas en las iteraciones y los arcos agregados. Entregue como resultado final la tabla con los caminos más cortos iniciando de un nodo que usted elija. Indique el nodo que se considerará como inicial.
+    \item \textbf{[25\%]} Bajo el mismo grafo, realice el algoritmo Floyd-Warshall y muestre los pasos a realizar. Entregue como resultado la matriz resultante. ¿Qué pasaría si los arcos pasan de ser no-dirigidos a dirigidos? ¿Cambiarían la forma de la matriz? Fundamente sin realizar el algoritmo nuevamente.
+\end{enumerate}
+
+Está demás decir que si se encuentran dos tareas con el mismo grafo y los mismos pesos serán evaluadas con la nota mínima y sin derecho a recorrección.
+
+\textbf{Nota}: todos los grafos de esta tarea deben ser generados utilizando el package Tikz de \LaTeX.
+
+\end{enumerate}
+\end{document}
+
