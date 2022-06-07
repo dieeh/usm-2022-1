@@ -1,11 +1,29 @@
 #lang scheme
 
 (define (suma_especial l a)
-  ; aqui va la implementacion de esta funcion
+    (define (suma_aux lista)
+      (if (null? lista)
+          0
+          (+ (car lista) (suma_aux (cdr lista)))
+      )
+    )
+    (/ (suma_aux l) a)
   )
 
 (define (merge_simple l1 l2 ops)
-  ; aqui va la implementacion de esta funcion
+    (let ((choose (lambda (x y o) 
+        (if (null? x)
+            `()
+            (cond 
+              [(eqv? (car o) #\S) (+ (car x) (car y))]
+              [(eqv? (car o) #\R) (- (car x) (car y))]
+              [(eqv? (car o) #\M) (* (car x) (car y))]
+            )
+         )
+    )))
+    (if (null? l1)
+    '()
+    (cons (choose l1 l2 ops) (merge_simple (cdr l1) (cdr l2) (cdr ops)))))
   )
 
 (define (merge_cola l1 l2 ops)
@@ -33,11 +51,11 @@
 ; caso, hay mas casos de prueba para la correccion
 
 ; Funcion 1
-(suma_especial '(1 2 3 4) 4)
+(suma_especial '(1 2 3 4) 4)   ;2.5 o 2 1/2
 
 ; Funcion 2
-(merge_simple '(1 2 3) '(4 5 6) '(#\S #\M #\R))
-(merge_cola '(1 2 3) '(4 5 6) '(#\S #\M #\R))
+(merge_simple '(1 2 3) '(4 5 6) '(#\S #\M #\R))  ; (5 10 -3)
+(merge_cola '(1 2 3) '(4 5 6) '(#\S #\M #\R)) 
 
 ; Funcion 3
 (demerge_simple '(1 2 3 4 5 6) '(lambda (x) (quotient x 2)))
