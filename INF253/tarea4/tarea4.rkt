@@ -1,33 +1,39 @@
 #lang scheme
 
 (define (suma_especial l a)
-    (define (suma_aux lista)
-      (if (null? lista)
-          0
-          (+ (car lista) (suma_aux (cdr lista)))
+  (define (suma_aux lista)
+    (if (null? lista)
+      0
+      (+ (car lista) (suma_aux (cdr lista)))
       )
     )
-    (/ (suma_aux l) a)
+  (/ (suma_aux l) a)
   )
 
 (define (merge_simple l1 l2 ops)
-    (let ((choose (lambda (x y o) 
-        (if (null? x)
-            `()
-            (cond 
-              [(eqv? (car o) #\S) (+ (car x) (car y))]
-              [(eqv? (car o) #\R) (- (car x) (car y))]
-              [(eqv? (car o) #\M) (* (car x) (car y))]
-            )
-         )
-    )))
-    (if (null? l1)
+  (let ((choose (lambda (x y o) 
+    (if (null? x)
+      `()
+      (cond 
+        [(eqv? (car o) #\S) (+ (car x) (car y))]
+        [(eqv? (car o) #\R) (- (car x) (car y))]
+        [(eqv? (car o) #\M) (* (car x) (car y))]
+        )
+      )
+  )))
+  (if (null? l1)
     '()
-    (cons (choose l1 l2 ops) (merge_simple (cdr l1) (cdr l2) (cdr ops)))))
+    (cons (choose l1 l2 ops) (merge_simple (cdr l1) (cdr l2) (cdr ops)))
+    )
+    )
   )
 
 (define (merge_cola l1 l2 ops)
-  ; aqui va la implementacion de esta funcion
+  (lambda (x y o)
+    (let merge ((a x)(b y)(c o)(l '()))
+            
+      )
+    )
   )
 
 (define (demerge_simple l f)
