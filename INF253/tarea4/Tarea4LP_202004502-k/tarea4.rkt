@@ -58,8 +58,24 @@
         )
     )
 
+
+;;(mapTail f l)
+;;Implementacion de la funcion map que utiliza recursion de cola.
+;;Entrega una lista con los resultados de la aplicacion de la funcion
+;; a todos los parametros de la lista
+(define (mapTail f l)
+    ((lambda (x y) 
+        (let mapeo ((a x)(b y)(c '()))
+            (if (null? b)
+                c
+                (mapeo a (cdr b) (append c (list(a(car b)))))
+                )
+            )
+        )f l)
+    )
+
 (define (demerge_cola l f)
-    (list (map f l)
+    (list (mapTail f l)
         ((lambda (x y) 
             (let demerge ((a x)(b y)(c '()))
                 (if (null? a)
@@ -67,7 +83,7 @@
                     (demerge (cdr a)(cdr b)(append c (list((lambda (x y)(- x y))(car a)(car b)))))
                     )
                 )
-            )l (map f l) )
+            )l (mapTail f l) )
         )
     )
 
@@ -126,9 +142,9 @@
 
 ; Otro test
 (all_superior
-'(((1 2 3)(4 5 6)(7 8 9)) ((9 8 7)(6 5 4)(3 2 1)) ((3 3 3)(4 4 4)(5 5 5)))
-'(((#\S #\M #\R)(#\S #\S #\S)(#\R #\R #\R))((#\S #\S #\M)(#\M #\M #\M)(#\S #\M #\S))((#\R #\M #\R)(#\R #\S #\S)(#\S #\S #\R)))
-(list (list (lambda (x)(* 2 x))(lambda (x)(* (/ 1 2) x))(lambda (x)(modulo x 3)))(list (lambda (x) (quotient x 2)) (lambda (x) (modulo x 2))(lambda (x) (+ 5 x))) (list (lambda (x)(* 4 x))(lambda (x)(* (/ 1 3) x))(lambda (x)(modulo x 4))))
-'((2 3 2)(3 4 4)(4 2 2)) 
-3 3
-)
+ '(((1 2 3)(4 5 6)(7 8 9)) ((9 8 7)(6 5 4)(3 2 1)) ((3 3 3)(4 4 4)(5 5 5)))
+ '(((#\S #\M #\R)(#\S #\S #\S)(#\R #\R #\R))((#\S #\S #\M)(#\M #\M #\M)(#\S #\M #\S))((#\R #\M #\R)(#\R #\S #\S)(#\S #\S #\R)))
+ (list (list (lambda (x)(* 2 x))(lambda (x)(* (/ 1 2) x))(lambda (x)(modulo x 3)))(list (lambda (x) (quotient x 2)) (lambda (x) (modulo x 2))(lambda (x) (+ 5 x))) (list (lambda (x)(* 4 x))(lambda (x)(* (/ 1 3) x))(lambda (x)(modulo x 4))))
+ '((2 3 2)(3 4 4)(4 2 2)) 
+ 3 3
+ )

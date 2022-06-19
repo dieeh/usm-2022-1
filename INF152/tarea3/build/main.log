@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.4.15)  6 JUN 2022 21:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.4.15)  19 JUN 2022 19:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -727,7 +727,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
  [1
 
 {C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<Captura8.JPG, id=35, 318.43968pt x 197.23688pt>
+<Captura8.JPG, id=39, 318.43968pt x 197.23688pt>
 File: Captura8.JPG Graphic file (type jpg)
 <use Captura8.JPG>
 Package pdftex.def Info: Captura8.JPG  used on input line 104.
@@ -749,25 +749,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--145
 
  []
 
-[2 <./Captura8.JPG>] [3] (c:\Users\Diego\Desktop\universidad\usm-2022-1\INF152\tarea3\build\main.aux
+[2 <./Captura8.JPG>] [3] [4] (c:\Users\Diego\Desktop\universidad\usm-2022-1\INF152\tarea3\build\main.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8DF5666EE08706CCA59CA7501E79D450;306.
+(rerunfilecheck)             Checksum: 742AE728A9EC87F8A3D2722889B1B42E;394.
  ) 
 Here is how much of TeX's memory you used:
- 24763 strings out of 478582
- 477853 string characters out of 2844344
+ 24767 strings out of 478582
+ 477885 string characters out of 2844344
  761233 words of memory out of 3000000
- 42504 multiletter control sequences out of 15000+600000
+ 42505 multiletter control sequences out of 15000+600000
  478466 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,9n,80p,1044b,449s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on c:\Users\Diego\Desktop\universidad\usm-2022-1\INF152\tarea3\build\main.pdf (3 pages, 194610 bytes).
+Output written on c:\Users\Diego\Desktop\universidad\usm-2022-1\INF152\tarea3\build\main.pdf (4 pages, 196185 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 42 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 50 words of extra memory for PDF output out of 10000 (max. 10000000)
 
