@@ -61,8 +61,8 @@
 
 ;;(mapTail f l)
 ;;Implementacion de la funcion map que utiliza recursion de cola.
-;;Entrega una lista con los resultados de la aplicacion de la funcion
-;; a todos los parametros de la lista
+;;Entrega una lista con los resultados de la aplicacion de la funcion f
+;;a todos los miembros de la lista l
 (define (mapTail f l)
     ((lambda (x y) 
         (let mapeo ((a x)(b y)(c '()))
@@ -83,7 +83,7 @@
                     (demerge (cdr a)(cdr b)(append c (list((lambda (x y)(- x y))(car a)(car b)))))
                     )
                 )
-            )l (mapTail f l) )
+            )l (mapTail f l))
         )
     )
 
@@ -102,7 +102,7 @@
         (let allsup ((a x)(b y)(c z)(d w))
             (if (null? a)
                 '()
-                (cons (map (lambda (x y z w) (superior x y z w)) (car a)(car b)(car c)(car d) )
+                (cons (mapTail (lambda (x y z w) (superior x y z w)) (car a)(car b)(car c)(car d) )
                     (allsup (cdr a)(cdr b)(cdr c)(cdr d))
                     )
                 )
