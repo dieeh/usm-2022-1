@@ -1,5 +1,7 @@
 import re
 
+
+
 telefono = r'\+[1-9][0-9]{5}'  #vv
 id = r'\#[A-Z]{2}[0-9]{2}'   #vv
 calles = r'[A-Z][a-zA-Z-\s]+[0-9]+' #vv
