@@ -26,6 +26,8 @@
 %\usetikzlibrary{shapes}
 \usetikzlibrary{arrows,automata}
 
+\usepackage[normalem]{ulem}
+
 \tikzset{
     %Define standard arrow tip
     >=stealth',
@@ -160,7 +162,362 @@ Está demás decir que si se encuentran dos tareas con el mismo grafo y los mism
 \newpage
 \section{Desarollo}
 \begin{enumerate}
-    \item a)
+    \item 
+    a) Como tengo digito verificador K y hago las tareas solo, el valor de $\tau$ es $10 \ DIV \ 1$ = 10, lo que deja la funcion hash tal que: $\mathcal{H}(x) = 10 \cdot x $ , y esto deja la tabla de actividades como:
+    
+    \begin{table}[H]
+        \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+        $Actividades$ & A & B & C & D & E & F & G & H & I & J & K \\ \hline
+         $Requisitos$ & - & A & A & B,K & B,K & B,K & C & F,G & D & E,H & C   \\\hline
+         $Energia$ & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & $\mu $ & 110 \\\hline
+        \end{tabular}
+        \caption{Tabla con actividades, requisitos y energías actualizada}
+        \label{tablita}
+    \end{table}
+
+    Entonces, al crear un grafo con los datos de la tabla anterior, obtenemos:
+
+        \begin{minipage}[b]{0.9\textwidth}
+        \centering
+        \begin{tikzpicture}[auto, node distance=2.9 cm,thick]
+        \tikzstyle{every state}=[draw,minimum size=0.6cm]
+        
+        \node[state] (1) {\textbf{\textit{s}}};
+        \node[state] (2) [right of=1]{$1$};
+        \node[state] (3) [right of=2]{$2$};
+        \node[state] (4) [below of=2]{$3$};
+        \node[state] (5) [right of=3]{$4$};
+        \node[state] (6) [below of=5]{$5$};
+        \node[state] (7) [right of =4]{$6$};
+        \node[state] (8) [right of=5]{\textbf{\textit{t}}};
+        
+        
+        \draw[->]   (1)     edge              node [above] {A, 10} (2)
+                    (2)     edge              node [above] {B, 20} (3)
+                            edge              node [left] {C, 30} (4)
+                    (3)     edge              node [above] {D, 40} (5)
+                            edge              node [right] {E, 50} (6)
+                            edge              node [left] {F, 60} (7)
+                    (4)     edge              node [above] {G, 70} (7)
+                            edge              node [left] {K, 110} (3)
+                    (7)     edge              node [above] {H, 80} (6)
+                    (5)     edge              node [above] {I, 90} (8)
+                    (6)     edge              node [left] {J, $\mu$} (8);
+                        
+        
+        \end{tikzpicture}
+        \captionof{figure}{Grafo de energías.}
+        \label{oliwis2}
+        \end{minipage}
+        \newline
+        b) Para obtener el valor de mínino de $\mu$ para que J pertenezca a la ruta crítica, debemos obtener primero los valores de la mínima energía requerida y la máxima energía que pueden llegar a usar las actividades, recordando que estas tienen valores entre 0 y 500:
+        \newline
+        \begin{minipage}[t]{0.43\textwidth}
+            \begin{equation*}
+                E(s) = 0, \ por \ definicion
+            \end{equation*}
+            \begin{equation*}
+                E(1) = max\{(0+10)\} = 10
+            \end{equation*}
+            \begin{equation*}
+                E(3) = max\{(10+30)\} = 40
+            \end{equation*}
+            \begin{equation*}
+                E(2) = max\{(40+110),(10+20)\} = 150
+            \end{equation*}
+            \begin{equation*}
+                E(4) = max\{(150+40)\} = 190
+            \end{equation*}
+            \begin{equation*}
+                E(6) = max\{(40+70),(150+60)\} = 210
+            \end{equation*}
+            \begin{equation*}
+                E(5) = max\{(210+80),(150+60)\} = 290
+            \end{equation*}
+            \begin{equation*}
+                E(t) = max\{(190+90),(290+\mu)\} = 290 + \mu
+            \end{equation*}
+        \end{minipage}
+        \begin{minipage}[t]{0.498\textwidth}
+            \begin{equation*}
+                L(t) = E(t) = 290 + \mu, \ por \ definicion.
+            \end{equation*}
+            \begin{equation*}
+                L(5) = min\{(290+\mu - \mu)\} = 290
+            \end{equation*}
+            \begin{equation*}
+                L(4) = min\{(290+\mu - 90)\} = 200 + \mu
+            \end{equation*}
+            \begin{equation*}
+                L(6) = min\{(290-80)\} = 210
+            \end{equation*}
+            \begin{equation*}
+                L(2) = min\{(210-60),(290-50),(200+\mu-40)\} = 150
+            \end{equation*}
+            \begin{equation*}
+                L(3) = min\{(150-110),(210-70)\} = 40
+            \end{equation*}
+            \begin{equation*}
+                L(1) = min\{(150-20),(40-30)\} = 10
+            \end{equation*}
+            \begin{equation*}
+                L(s) = min\{(10-10)\} = 0
+            \end{equation*}
+        \end{minipage}
+        \newline
+        \newline
+        \newline
+        Con estos datos podemos armar una tabla que nos ordene los valores recién obtenidos:
+
+        \begin{table}[H]
+            \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}\hline
+            $ x  $ & s & 1 & 2 & 3 & 4 & 5 & 6 & t \\ \hline
+             $E(x)$ & 0 & 10 & 150 & 40 & 190 & 290 & 210 & 290$+\mu$    \\\hline
+             $L(x)$ & 0 & 10 & 150 & 40 & 200$+\mu$ & 290 & 210 & 290$+\mu$ \\\hline
+            \end{tabular}
+            \caption{Tabla con energías mínimas y máximas}
+            \label{tablita23}
+        \end{table}
+
+        \newpage
+        Y esta tabla nos permite calcular la holgura, necesaria para obtener la ruta crítica:
+
+        \begin{table}[H]
+            \centering
+        \begin{tabular}{|c|c|c|}\hline
+            $ Actividad  $ & $L(y) - E(x) - w(x, y)$ & $F(x, y)$  \\ \hline
+             A & $10 - 0 - 10$ & 0      \\\hline
+             B & $150 - 10 - 20$ & 120   \\\hline
+             C & $40 - 10 - 30$ & 0      \\\hline
+             D & $(200 + \mu) - 150 - 40$ & 10$+\mu$   \\\hline
+             E & $290-150-50$ & 90      \\\hline
+             F & $210-150-60$ & 0   \\\hline
+             G & $210-40-70$ & 100      \\\hline
+             H & $290-210-80$ & 0   \\\hline
+             I & $(290+\mu)-190-90$ & 10$+\mu$     \\\hline
+             J & $(290+\mu)-290-\mu$ & 0   \\\hline
+             K & $150-40-110$ & 0      \\\hline
+            \end{tabular}
+            \caption{Tabla de holguras}
+            \label{tablitaholgura}
+        \end{table}
+
+        Como podemos ver, la holgura de la actividad J es $(290+\mu)-290-\mu$, por lo tanto, independiente del 
+        valor de $\mu$, J siempre pertenecerá a la ruta crítica. Esta ruta crítica es conformada por las actividades 
+        con holgura 0, es decir, las actividades \{A, C, F, H, J ,K\}, y esta ruta crítica tiene un consumo de energía del $290 + \mu $\%
+        \newline
+        \newline
+        
+        c) Si se tiene que consumir como máximo un 300\% y la holgura de D tiene que ser como mínimo un
+         20\%, entonces podemos encontrar el valor de $\mu$ mediante inecuaciones:
+        \newline
+        \begin{minipage}[t]{0.5\textwidth}
+            \begin{equation*}
+                290 + \mu \leq 300
+            \end{equation*}
+            \begin{equation*}
+                \mu \leq 300 - 290
+            \end{equation*}
+            \begin{equation*}
+                \mu \leq 10
+            \end{equation*}
+        \end{minipage}
+        \begin{minipage}[t]{0.5\textwidth}
+            \begin{equation*}
+                10 + \mu \geq 20
+            \end{equation*}
+            \begin{equation*}
+                \mu \geq 20 - 10
+            \end{equation*}
+            \begin{equation*}
+                \mu \geq 10
+            \end{equation*}
+        \end{minipage}
+
+        \vspace*{0.5cm}
+        Lo que nos deja con la inecuación $10 \leq \mu \leq 10$, la cual se cumple solamente con $\mu = 10$
+        
+        \newpage
+        \item El grafo que se utilizará será el siguiente:
+        
+        \begin{minipage}[b]{0.9\textwidth}
+            \centering
+            \begin{tikzpicture}[auto, node distance=2.2 cm,thick]
+            \tikzstyle{every state}=[draw,minimum size=0.6cm]
+            
+            \node[state] (1) {$1$};
+            \node[state] (2) [above right of=1]{$2$};
+            \node[state] (3) [below right of=1]{$3$};
+            \node[state] (4) [below right of=2]{$4$};
+            \node[state] (5) [above right of=4]{$5$};
+            \node[state] (6) [below right of=4]{$6$};
+            \node[state] (7) [below right of =5]{$7$};
+            
+            
+            
+            \path       (1)     edge              node [above] {28} (2)
+                                edge              node [below] {21} (3)
+                        (2)     edge              node [left]   {6} (3)
+                        (4)     edge              node [below] {15} (2)
+                                edge              node [below] {30} (5)
+                                edge              node [above] {12} (6)
+                                edge              node [above] {17} (3)
+                        (5)     edge              node [above] {20} (2)
+                                edge              node [above] {40} (7)
+                                edge              node [right] {37} (6)
+                        (6)     edge              node [below] {22} (3)
+                                edge              node [below] {60} (7);
+                            
+            
+            \end{tikzpicture}
+            \captionof{figure}{Grafo rotulado.}
+            \label{oliwis32}
+            \end{minipage}
+
+         a) Aplicando Dijkstra para encontrar el camino optimo entre los nodos 1 y 7:
+
+         \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 1 & $0$ & -      \\\hline
+                 2 & $\infty$ &    \\\hline
+                 3 & $\infty$ &    \\\hline
+                 4 & $\infty$ &    \\\hline
+                 5 & $\infty$ &    \\\hline
+                 6 & $\infty$ &    \\\hline
+                 7 & $\infty$ &    \\\hline
+                \end{tabular}
+                \caption{Iteración 0}
+                \label{tablitaiteracion0}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                \textbf{1} & $0$ & -      \\\hline
+                 2 & $28$ & 1   \\\hline
+                 3 & $21$ & 1  \\\hline
+                 4 & $\infty$ &    \\\hline
+                 5 & $\infty$ &    \\\hline
+                 6 & $\infty$ &    \\\hline
+                 7 & $\infty$ &    \\\hline
+                \end{tabular}
+                \caption{Iteración 1}
+                \label{tablitaiteracion1}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 \sout{ 1 } & $0$ & -      \\\hline
+                 2 & $27$ & 1$\rightarrow$3   \\\hline
+                 \textbf{3} & $21$ &  1  \\\hline
+                 4 & $38$ & 1$\rightarrow$3   \\\hline
+                 5 & $\infty$ &    \\\hline
+                 6 & $43$ & 1$\rightarrow$3   \\\hline
+                 7 & $\infty$ &    \\\hline
+                \end{tabular}
+                \caption{Iteración 2}
+                \label{tablitaiteracion2}
+            \end{table}
+        \end{minipage}
+
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 \sout{ 1 } & $0$ & -      \\\hline
+                 \textbf{2} & $27$ & 1$\rightarrow$3   \\\hline
+                 \sout{ 3 } & $21$ & 1   \\\hline
+                 4 & $38$ & 1$\rightarrow$3   \\\hline
+                 5 & $47$ & 1$\rightarrow$3$\rightarrow$2   \\\hline
+                 6 & $43$ & 1$\rightarrow$3   \\\hline
+                 7 & $\infty$ &    \\\hline
+                \end{tabular}
+                \caption{Iteración 3}
+                \label{tablitaiteracion3}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 \sout{ 1 } & $0$ & -      \\\hline
+                 \sout{ 2 } & $27$ & 1$\rightarrow$3   \\\hline
+                 \sout{ 3 } & $21$ & 1   \\\hline
+                 \textbf{4} & $38$ & 1$\rightarrow$3   \\\hline
+                 5 & $47$ & 1$\rightarrow$3$\rightarrow$2   \\\hline
+                 6 & $43$ & 1$\rightarrow$3   \\\hline
+                 7 & $\infty$ &    \\\hline
+                \end{tabular}
+                \caption{Iteración 4}
+                \label{tablitaiteracion4}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 \sout{ 1 } & $0$ & -      \\\hline
+                 \sout{ 2 } & $27$ & 1$\rightarrow$3   \\\hline
+                 \sout{ 3 } & $21$ & 1   \\\hline
+                 \sout{ 4 } & $38$ & 1$\rightarrow$3   \\\hline
+                 5 & $47$ & 1$\rightarrow$3$\rightarrow$2   \\\hline
+                 \textbf{6} & $43$ & 1$\rightarrow$3   \\\hline
+                 7 & $103$ & 1$\rightarrow$3$\rightarrow$6   \\\hline
+                \end{tabular}
+                \caption{Iteración 5}
+                \label{tablitaiteracion5}
+            \end{table}
+        \end{minipage}
+
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 \sout{ 1 } & $0$ & -      \\\hline
+                 \sout{ 2 } & $27$ & 1$\rightarrow$3   \\\hline
+                 \sout{ 3 } & $21$ & 1   \\\hline
+                 \sout{ 4 } & $38$ & 1$\rightarrow$3   \\\hline
+                 \textbf{5} & $47$ & 1$\rightarrow$3$\rightarrow$2   \\\hline
+                 \sout{ 6 } & $43$ & 1$\rightarrow$3   \\\hline
+                 7 & $87$ & 1$\rightarrow$3$\rightarrow$2$\rightarrow$5   \\\hline
+                \end{tabular}
+                \caption{Iteración 6}
+                \label{tablitaiteracion6}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 \sout{ 1 } & $0$ & -      \\\hline
+                 \sout{ 2 } & $27$ & 1$\rightarrow$3   \\\hline
+                 \sout{ 3 } & $21$ & 1   \\\hline
+                 \sout{ 4 } & $38$ & 1$\rightarrow$3   \\\hline
+                 \sout{ 5 } & $47$ & 1$\rightarrow$3$\rightarrow$2   \\\hline
+                 \sout{ 6 } & $43$ & 1$\rightarrow$3   \\\hline
+                 \textbf{7} & $87$ & 1$\rightarrow$3$\rightarrow$2$\rightarrow$5   \\\hline
+                \end{tabular}
+                \caption{Iteración 7 y final.}
+                \label{tablitaiteracion7}
+            \end{table}
+        \end{minipage}
+        
+
 \end{enumerate}
 
 

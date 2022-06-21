@@ -107,8 +107,8 @@
                     )
                 )
             )
-       )matriz_ls matriz_ops matriz_f matriz_nums)
-  )
+        )matriz_ls matriz_ops matriz_f matriz_nums)
+    )
 
 ; Casos de ejemplos
 ; Cabe destacar que su tarea debe funcionar para cualquier
