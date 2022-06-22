@@ -304,12 +304,11 @@ Está demás decir que si se encuentran dos tareas con el mismo grafo y los mism
             \label{tablitaholgura}
         \end{table}
 
-        Como podemos ver, la holgura de la actividad J es $(290+\mu)-290-\mu$, por lo tanto, independiente del 
-        valor de $\mu$, J siempre pertenecerá a la ruta crítica. Esta ruta crítica es conformada por las actividades 
+        Como podemos ver, la holgura de la actividad J es $(290+\mu)-290-\mu$, por lo tanto, \textbf{independiente del 
+        valor de $\mu$, J siempre pertenecerá a la ruta crítica}. La ruta crítica está conformada por las actividades 
         con holgura 0, es decir, las actividades \{A, C, F, H, J ,K\}, y esta ruta crítica tiene un consumo de energía del $290 + \mu $\%
         \newline
         \newline
-        
         c) Si se tiene que consumir como máximo un 300\% y la holgura de D tiene que ser como mínimo un
          20\%, entonces podemos encontrar el valor de $\mu$ mediante inecuaciones:
         \newline
@@ -377,6 +376,12 @@ Está demás decir que si se encuentran dos tareas con el mismo grafo y los mism
             \end{minipage}
 
          a) Aplicando Dijkstra para encontrar el camino optimo entre los nodos 1 y 7:
+         \newline
+         \newline
+         Para aplicar Dijkstra se deben ir registrando y comparando los valores de los arcos adyacentes al nodo 
+        que se está evaluando, reemplazando en el caso de que se encuentre un camino más corto. En las tablas 
+        de las iteraciones están marcados con negrita el nodo actual, y están tachados los nodos ya visitados, 
+        para el nodo actual se elige el que sea menor entre todos los nodos sin visitar de la iteración anterior.
 
          \begin{minipage}[t]{0.3\textwidth}
             \begin{table}[H]
@@ -516,8 +521,195 @@ Está demás decir que si se encuentran dos tareas con el mismo grafo y los mism
                 \label{tablitaiteracion7}
             \end{table}
         \end{minipage}
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|}\hline
+                $ v  $ & $L[v]$ & $path$  \\ \hline
+                 1 & $0$ & -      \\\hline
+                 2 & $27$ & 1$\rightarrow$3   \\\hline
+                 3 & $21$ & 1   \\\hline
+                 4 & $38$ & 1$\rightarrow$3   \\\hline
+                 5 & $47$ & 1$\rightarrow$3$\rightarrow$2   \\\hline
+                 6 & $43$ & 1$\rightarrow$3   \\\hline
+                 7 & $87$ & 1$\rightarrow$3$\rightarrow$2$\rightarrow$5   \\\hline
+                \end{tabular}
+                \caption{Resultado final después de aplicar Dijkstra.}
+                \label{tablitaiteracion8}
+            \end{table}
+        \end{minipage}
         
+        \vspace{.5cm}
+        Entonces, después de ejecutar el algoritmo de Dijkstra en el grafo, tenemos que el camino optimo, o de menor costo, entre los nodos 1 y 7 es \{$1\rightarrow3\rightarrow2\rightarrow5\rightarrow7$\}
 
+        \vspace{.5cm}
+        b) Aplicando Floyd-Warshall para encontrar el camino mas corto entre cualquier par de nodos
+        \newline
+        \newline
+        Para aplicar Floyd-Warshall se van comparando los costos de los caminos con el costo de usar un nodo 'auxiliar', es decir, un camino a través de otro nodo, por ejemplo, el camino de 1 a 2 es 28, pero el camino de 1 a 2 pasando por 3 es 27, y así comparando los costos hasta tener una matriz con los menores costos entre todo par de nodos del grafo.
+
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & $0$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$ & $\infty$      \\\hline
+                 2 & -  & 0  & $\infty$  & $\infty$  & $\infty$  & $\infty$  & $\infty$   \\\hline
+                 3 & -  & -  & 0  & $\infty$  & $\infty$  & $\infty$  & $\infty$   \\\hline
+                 4 & -  & -  & -  & 0  & $\infty$  & $\infty$  & $\infty$   \\\hline
+                 5 & -  & -  & -  & -  & 0  & $\infty$  & $\infty$  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & $\infty$   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 0.}
+                \label{tablitafloyd0}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & $0$ & 28 & 21 & $\infty$ & $\infty$ & $\infty$ & $\infty$      \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & $\infty$  & $\infty$   \\\hline
+                 3 & -  & -  & 0  & 17  & $\infty$  & 22  & $\infty$   \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & $\infty$   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 1, caminos directos.}
+                \label{tablitafloyd1}
+            \end{table}
+        \end{minipage}
+
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & $0$ & 28 & 21 & 43 & 48 & $\infty$ & $\infty$      \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & $\infty$  & $\infty$   \\\hline
+                 3 & -  & -  & 0  & 17  & 26  & 22  & $\infty$   \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & $\infty$   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 2, pasando por el nodo 2.}
+                \label{tablitafloyd2}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & $0$ & 27 & 21 & 38 & 47 & 43 & $\infty$      \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & 28  & $\infty$   \\\hline
+                 3 & -  & -  & 0  & 17  & 26  & 22  & $\infty$   \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & $\infty$   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 3, pasando por el nodo 3.}
+                \label{tablitafloyd3}
+            \end{table}
+        \end{minipage}
+
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & $0$ & 27 & 21 & 38 & 47 & 43 & $\infty$      \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & 27  & $\infty$   \\\hline
+                 3 & -  & -  & 0  & 17  & 26  & 22  & $\infty$   \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & $\infty$   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 4, pasando por el nodo 4.}
+                \label{tablitafloyd4}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & 0  & 27 & 21 & 38 & 47 & 43 & 87     \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & 27  & 60  \\\hline
+                 3 & -  & -  & 0  & 17  & 26  & 22  & 66  \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & 70   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 5, pasando por el nodo 5.}
+                \label{tablitafloyd5}
+            \end{table}
+        \end{minipage}
+
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & 0  & 27 & 21 & 38 & 47 & 43 & 87     \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & 27  & 60  \\\hline
+                 3 & -  & -  & 0  & 17  & 26  & 22  & 66  \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & 70   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 6, pasando por el nodo 6.}
+                \label{tablitafloyd6}
+            \end{table}
+        \end{minipage}
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & 0  & 27 & 21 & 38 & 47 & 43 & 87     \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & 27  & 60  \\\hline
+                 3 & -  & -  & 0  & 17  & 26  & 22  & 66  \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & 70   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Iteración 7, pasando por el nodo 7 y final.}
+                \label{tablitafloyd7}
+            \end{table}
+        \end{minipage}
+
+        \begin{minipage}[t]{0.47\textwidth}
+            \begin{table}[H]
+                \centering
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+                   & 1 & 2 & 3 & 4 & 5 & 6 & 7   \\ \hline
+                 1 & 0  & 27 & 21 & 38 & 47 & 43 & 87     \\\hline
+                 2 & -  & 0  & 6  & 15  & 20  & 27  & 60  \\\hline
+                 3 & -  & -  & 0  & 17  & 26  & 22  & 66  \\\hline
+                 4 & -  & -  & -  & 0  & 30  & 12  & 70   \\\hline
+                 5 & -  & -  & -  & -  & 0  & 37  & 40  \\\hline
+                 6 & -  & -  & -  & -  & -  & 0  & 60   \\\hline
+                 7 & -  & -  & -  & -  & -  & -  & 0   \\\hline
+                \end{tabular}
+                \caption{Resultado final después de aplicar Floyd-Warshall.}
+                \label{tablitafloydfin}
+            \end{table}
+        \end{minipage}
+        \newline
+        
+        Y este es el resultado final despues de aplicar el algoritmo de Floyd-Warshall al grafo, notese que es una matriz simétrica y por eso está completa solo la mitad. 
+        
+        Si los arcos del grafo pasaran a ser dirigidos, se deberia aplicar nuevamente el algoritmo puesto que dejaría de ser una matriz simétrica y los caminos de 1 a 3 ya no serian los mismos que de 3 a 1, lo que provocaria el uso de la matriz completa y no solo la mitad.
 \end{enumerate}
 
 
