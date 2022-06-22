@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1655860439 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea3/main.tex" "build/main.pdf" "main" 1655860440
+["pdflatex"] 1655860851 "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea3/main.tex" "build/main.pdf" "main" 1655860853
   "C:/Users/Diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1655796881 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Diego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1649998813 10246961 5da53bb2b8901c3729fe5a773d41703a ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1233948248 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -191,10 +191,10 @@
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1081522700 5928 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/Diego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636281272 56029 3f7889dab51d620aa43177c391b7b190 ""
   "Captura8.JPG" 1654274732 22350 94fbfe79e9aa85d48c4d90134ffba54a ""
-  "build/main.aux" 1655860440 6980 0a27b7e39b4ba1092e5acdd291eefce8 "pdflatex"
-  "build/main.out" 1655860440 394 742ae728a9ec87f8a3d2722889b1b42e "pdflatex"
-  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea3/main.tex" 1655860438 35503 cad25ebad30808a6fa697dff79cf6c8e ""
-  "main.tex" 1655860438 35503 cad25ebad30808a6fa697dff79cf6c8e ""
+  "build/main.aux" 1655860852 6980 0a27b7e39b4ba1092e5acdd291eefce8 "pdflatex"
+  "build/main.out" 1655860852 394 742ae728a9ec87f8a3d2722889b1b42e "pdflatex"
+  "c:/Users/Diego/Desktop/universidad/usm-2022-1/INF152/tarea3/main.tex" 1655860850 35504 1fc788289fcbceff8ebbfc3d264ab175 ""
+  "main.tex" 1655860850 35504 1fc788289fcbceff8ebbfc3d264ab175 ""
   (generated)
   "build/main.aux"
   "build/main.log"
