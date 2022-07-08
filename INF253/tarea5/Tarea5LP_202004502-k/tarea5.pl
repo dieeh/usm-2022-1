@@ -29,15 +29,49 @@ pasadofuturo(LISTA, RES):-
     RES is 1; 
     RES is 0.
 
-arbolbonito([A, [X,[_],[_]], [Y,[_],[_]]], true):- 
-    pasadofuturo(A, 1),
-    pasadofuturo(X, 1);
-    pasadofuturo(A, 1),
-    pasadofuturo(Y, 1).
+arbolbonito([], false).
 arbolbonito([A, B, C], true):-
-    arbolbonito(B, true),
-    arbolbonito(C, true).
+    append([X, Y, Z], [], B),
+    append([N, M, P], [], C),
+    member(_, Y),
+    member(_, Z),
+    member(_, M),
+    member(_, P),
+    pasadofuturo(X,0),
+    pasadofuturo(N,0),
+    pasadofuturo(A,0).
+arbolbonito([A, B, C], true):-
+    append([X, Y, Z], [], B),
+    append([N, M, P], [], C),
+    member(_, Y),
+    member(_, Z),
+    member(_, M),
+    member(_, P),
+    pasadofuturo(X,1),
+    pasadofuturo(A,1);
+    append([X, Y, Z], [], B),
+    append([N, M, P], [], C),
+    member(_, Y),
+    member(_, Z),
+    member(_, M),
+    member(_, P),
+    pasadofuturo(N,1),
+    pasadofuturo(A,1).
+arbolbonito([_,B,C], V):-
+    arbolbonito(B, V),
+    arbolbonito(C, V).
+%arbolbonito(_, false).
 
 
+% [[1, 4, 23, 10, 2, 5],
+%      [[1, 2, 3],
+%          [[1, 2],
+%              [], []],
+%          [[2, 3],
+%              [], []]],
+%      [[1, 2],
+%         [], []]]
 
-% [ [1, 4, 23, 10, 2, 5], [ [1, 2, 3], [ [1, 2], [], [] ], [ [2, 3], [], [] ] ], [ [1, 2], [], []] ]
+% [[2,3],[[2,3],[[2,3],[],[]], [[2,3],[],[]]], [[2,3],[[2,3],[],[]], [[2,3],[],[]]]]
+
+% [[1, 4, 23, 10, 2, 5],[[1, 2, 3],[[1, 2],[], []],[[2, 3],[], []]],[[1, 2],[], []]]

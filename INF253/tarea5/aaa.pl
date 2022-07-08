@@ -51,3 +51,42 @@ separ(LISTA, A, A, [L]):-
     nth0(A, LISTA, L).
 separ(LISTA, I, J, L):-
     separ(LISTA, I, J, L, NewL).
+
+
+arbolbonito([], false).
+arbolbonito([_,[],[]], false).
+arbolbonito([A, [X,[_],[_]], [Y,[_],[_]]], V):-
+    !,
+    pasadofuturo(A, 1),
+    pasadofuturo(X, 1),
+    V is true;
+    pasadofuturo(A, 1),
+    pasadofuturo(Y, 1),
+    V is true.
+arbolbonito([A, [X,[_],[_]], [Y,[_],[_]]], V):- 
+    !,
+    pasadofuturo(A, 0),
+    pasadofuturo(X, 0),
+    V is true;
+    pasadofuturo(A, 0),
+    pasadofuturo(Y, 0),
+    V is true.
+arbolbonito([A, [X,[_],[_]], [_,[],[]]], V):- 
+    !,
+    pasadofuturo(A, 1),
+    pasadofuturo(X, 1),
+    V is true;
+    pasadofuturo(A, 0),
+    pasadofuturo(X, 0),
+    V is true.
+arbolbonito([A, [_,[],[]], [Y,[_],[_]]], V):- 
+    !,
+    pasadofuturo(A, 1),
+    pasadofuturo(Y, 1),
+    V is true;
+    pasadofuturo(A, 0),
+    pasadofuturo(Y, 0),
+    V is true.
+arbolbonito([_, B, C], true):-
+    arbolbonito(B, true),
+    arbolbonito(C, true).
