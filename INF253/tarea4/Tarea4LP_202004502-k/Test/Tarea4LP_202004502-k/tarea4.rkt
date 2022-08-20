@@ -102,13 +102,13 @@
         (let allsup ((a x)(b y)(c z)(d w))
             (if (null? a)
                 '()
-                (cons (mapTail (lambda (x y z w) (superior x y z w)) (car a)(car b)(car c)(car d) )  ;fix
+                (cons (map (lambda (x y z w) (superior x y z w)) (car a)(car b)(car c)(car d) )
                     (allsup (cdr a)(cdr b)(cdr c)(cdr d))
                     )
                 )
             )
-        )matriz_ls matriz_ops matriz_f matriz_nums)
-    )
+       )matriz_ls matriz_ops matriz_f matriz_nums)
+  )
 
 ; Casos de ejemplos
 ; Cabe destacar que su tarea debe funcionar para cualquier
